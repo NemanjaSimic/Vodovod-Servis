@@ -1,0 +1,19 @@
+C:\Users\Simic\Desktop\Blok6\Template BP2\Template\bin\Debug\Template.dacpac
+C:\Users\Simic\Desktop\Blok6\Template BP2\Template\bin\Debug\Template.dll
+C:\Users\Simic\Desktop\Blok6\Template BP2\Template\bin\Debug\Template.pdb
+C:\Users\Simic\Desktop\Blok6\Template BP2\Template\obj\Debug\Template.sqlprojAssemblyReference.cache
+C:\Users\Simic\Desktop\Blok6\Template BP2\Template\obj\Debug\Model.xml
+C:\Users\Simic\Desktop\Blok6\Template BP2\Template\obj\Debug\refactor.xml
+C:\Users\Simic\Desktop\Blok6\Template BP2\Template\obj\Debug\postdeploy.sql
+C:\Users\Simic\Desktop\Blok6\Template BP2\Template\obj\Debug\predeploy.sql
+C:\Users\Simic\Desktop\Blok6\Template BP2\Template\obj\Debug\Template.dll
+C:\Users\Simic\Desktop\Blok6\Template BP2\Template\obj\Debug\Template.pdb
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Template\bin\Debug\Template.dacpac
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Template\bin\Debug\Template.dll
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Template\bin\Debug\Template.pdb
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Template\obj\Debug\Template.dll
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Template\obj\Debug\Template.pdb
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Template\obj\Debug\Model.xml
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Template\obj\Debug\refactor.xml
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Template\obj\Debug\postdeploy.sql
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Template\obj\Debug\predeploy.sql

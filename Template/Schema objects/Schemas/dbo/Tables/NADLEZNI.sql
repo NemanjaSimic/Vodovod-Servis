@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[NADLEZNI]
+(
+	JMBG_ZAP CHAR (13) NOT NULL
+)

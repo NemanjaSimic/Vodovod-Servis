@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[RADNIIK]
+(
+	JMBG_ZAP    CHAR (13) NOT NULL ,
+    EKIPA_ID_EK VARCHAR (10)
+)

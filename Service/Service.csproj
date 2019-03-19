@@ -65,12 +65,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="Commands\CreateKorisnikCommand.cs" />
     <Compile Include="Commands\CreateNadlezniCommand.cs" />
     <Compile Include="Commands\CreateRadnikCommand.cs" />
+    <Compile Include="Commands\DeleteKorisnikCommand.cs" />
     <Compile Include="Commands\DeleteNadlezniCommand.cs" />
     <Compile Include="Commands\DeleteRadnikCommand.cs" />
+    <Compile Include="Commands\SaveChangesKorisnikCommand.cs" />
     <Compile Include="Commands\SaveChangesNadlezniCommand.cs" />
     <Compile Include="Commands\SaveChangesRadnikCommand.cs" />
+    <Compile Include="Commands\UpdateKorisnikCommand.cs" />
     <Compile Include="Commands\UpdateNadlzeniCommand.cs" />
     <Compile Include="Commands\UpdateRadnikCommand.cs" />
     <Compile Include="Models\Datebase.Context.cs">
@@ -149,6 +153,7 @@
     <Compile Include="ViewModels\RacuniViewModel.cs" />
     <Compile Include="ViewModels\RadniciViewModel.cs" />
     <Compile Include="ViewModels\RadniNalogViewModel.cs" />
+    <Compile Include="ViewModels\UpdateKorisnikViewModel.cs" />
     <Compile Include="ViewModels\UpdateNadlezniViewModel.cs" />
     <Compile Include="ViewModels\UpdateRadnikViewModel.cs" />
     <Compile Include="ViewModels\ZaposleniViewModel.cs" />
@@ -184,6 +189,9 @@
     </Compile>
     <Compile Include="Views\NadlezniView.xaml.cs">
       <DependentUpon>NadlezniView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateKorisnik.xaml.cs">
+      <DependentUpon>UpdateKorisnik.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UpdateNadlzeni.xaml.cs">
       <DependentUpon>UpdateNadlzeni.xaml</DependentUpon>
@@ -244,6 +252,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NadlezniView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateKorisnik.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -68,7 +68,7 @@ namespace Service.ViewModels
 
 			if (String.IsNullOrEmpty(Nadlezni.ZAPOSLENI.PREZ_ZAP))
 			{
-				ValidationPrez = "Ime ne sme biti prazno!";
+				ValidationPrez = "Prezime ne sme biti prazno!";
 				retVal = false;
 			}
 			else

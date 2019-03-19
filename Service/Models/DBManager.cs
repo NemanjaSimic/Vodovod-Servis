@@ -203,5 +203,65 @@ namespace Service.Models
 			CreateRadnik(radnik.ZAPOSLENI);
 		}
 		#endregion
+
+		#region Korisnici
+		public List<KORISNIK> GetKORISNICIs()
+		{
+			List<KORISNIK> retVal = new List<KORISNIK>();
+			using (var dbManager = new VodovodEntities())
+			{
+				try
+				{
+					retVal = dbManager.KORISNIKs.ToList();
+				}
+				catch (Exception)
+				{
+
+					throw;
+				}
+			}
+			return retVal;
+		}
+
+		public void CreateKorisnik(KORISNIK newKorisnik)
+		{
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					dbManager.KORISNIKs.Add(newKorisnik);
+					dbManager.SaveChanges();
+				}
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
+
+		public void DeleteKorisnik(string jmbg)
+		{
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					dbManager.KORISNIKs.Remove(dbManager.KORISNIKs.ToList().Find(n => n.JMBG_KOR.Equals(jmbg)));
+					dbManager.SaveChanges();
+				}
+
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
+
+		public void UpdateKorisnik(KORISNIK korisnik)
+		{
+			DeleteKorisnik(korisnik.JMBG_KOR);
+			CreateKorisnik(korisnik);
+		}
+		#endregion
 	}
 }

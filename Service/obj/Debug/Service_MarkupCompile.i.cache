@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Simic\Desktop\Blok6\VodovodnaMreza\Service\obj\Debug\
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Service\obj\Debug\
 Service
 none
 false
 DEBUG;TRACE
-C:\Users\Simic\Desktop\Blok6\VodovodnaMreza\Service\App.xaml
+C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Service\App.xaml
 111722577651
-
-29285203131
-13738642453
+2-1650694868
+48804364174
+18-709249418
 MainWindow.xaml;Views\DeoOpremeView.xaml;Views\EkipeView.xaml;Views\KorisniciView.xaml;Views\KvarView.xaml;Views\LokacijaView.xaml;Views\MagacinView.xaml;Views\MrezeView.xaml;Views\RacuniView.xaml;Views\RadniNalogView.xaml;Views\ZaposleniView.xaml;
 
 False

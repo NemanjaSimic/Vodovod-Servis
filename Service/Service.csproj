@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +64,69 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Datebase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Datebase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Datebase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Datebase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Datebase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DEO_OPREME.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EKIPA.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KORISNIK.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KVAR.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOKACIJA.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MAGACIN.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NADLEZNI.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NALAZI_SE_NA.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NALAZI_U.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRIJAVLJUJE.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRIMA.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RACUN.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RADNIIK.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RADNI_NALOG.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VODOVODNA_MREZA.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ZAPOSLENI.cs">
+      <DependentUpon>Datebase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\DeoOpremeViewModel.cs" />
     <Compile Include="ViewModels\EkipeViewModel.cs" />
     <Compile Include="ViewModels\KorisniciViewModel.cs" />
@@ -166,6 +238,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Models\Datebase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Datebase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Datebase.edmx.diagram">
+      <DependentUpon>Datebase.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -177,8 +257,21 @@
   <ItemGroup>
     <Resource Include="Pictures\close_icon_png_289229.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Content Include="Models\Datebase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Datebase.edmx</DependentUpon>
+      <LastGenOutput>Datebase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Datebase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Datebase.edmx</DependentUpon>
+      <LastGenOutput>Datebase.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

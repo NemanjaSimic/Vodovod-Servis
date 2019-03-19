@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pictures/close_icon_png_289229.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/datebase.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/datebase.tt")]
 
 

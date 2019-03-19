@@ -32,9 +32,9 @@ namespace Service
 			this.Close();
 		}
 
-		private void ZaposleniButton_Click(object sender, RoutedEventArgs e)
+		private void NadlezniButton_Click(object sender, RoutedEventArgs e)
 		{
-			DataContext = new ZaposleniViewModel();
+			DataContext = new NadlezniViewModel();
 		}
 
 		private void MrezeButton_Click(object sender, RoutedEventArgs e)
@@ -81,8 +81,11 @@ namespace Service
 		{
 			DataContext = new RadniNalogViewModel();
 		}
+
+		private void RadniciButton_Click(object sender, RoutedEventArgs e)
+		{
+			DataContext = new RadniciViewModel();
+		}
 		#endregion
-
-
 	}
 }

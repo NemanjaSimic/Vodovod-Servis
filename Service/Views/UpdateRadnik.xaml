@@ -1,0 +1,18 @@
+﻿<Window x:Class="Service.Views.UpdateRadnik"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Service.Views"
+        mc:Ignorable="d"
+        Title="UpdateRadnik" Height="284.827" Width="572.399" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+		<TextBox HorizontalAlignment="Left" Height="43" Margin="293,26,0,0" TextWrapping="Wrap" Text="{Binding Radnik.ZAPOSLENI.IME_ZAP, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
+		<TextBox HorizontalAlignment="Left" Height="43" Margin="293,108,0,0" TextWrapping="Wrap" Text="{Binding Radnik.ZAPOSLENI.PREZ_ZAP, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
+		<Label Content="IME:" HorizontalAlignment="Left" Height="43" Margin="44,26,0,0" VerticalAlignment="Top" Width="244" FontWeight="Bold" FontSize="18"/>
+		<Label Content="PREZIME:" HorizontalAlignment="Left" Height="43" Margin="43,108,0,0" VerticalAlignment="Top" Width="244" FontSize="18" FontWeight="Bold"/>
+		<Button Command="{Binding SaveChangesCommand}" Content="Save Changes" HorizontalAlignment="Left" Height="37" Margin="43,189,0,0" VerticalAlignment="Top" Width="472" FontWeight="Bold" FontSize="20" FontFamily="Showcard Gothic"/>
+		<TextBlock HorizontalAlignment="Left" Height="20" Margin="293,74,0,0" TextWrapping="Wrap" Text="{Binding ValidationIme}" VerticalAlignment="Top" Width="222"/>
+		<TextBlock HorizontalAlignment="Left" Height="20" Margin="293,156,0,0" TextWrapping="Wrap" Text="{Binding ValidationPrez}" VerticalAlignment="Top" Width="222"/>
+	</Grid>
+</Window>

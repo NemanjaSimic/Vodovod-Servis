@@ -7,10 +7,14 @@
 		xmlns:view="clr-namespace:Service.Views"
 		xmlns:viewmodel="clr-namespace:Service.ViewModels"
         mc:Ignorable="d"
-        Title="Vodovod Servis" Height="800" Width="1000" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="Vodovod Servis" Height="800" Width="1000" ResizeMode="NoResize" Topmost="False" WindowStartupLocation="CenterScreen" WindowStyle="None">
 	<Window.Resources>
-		<DataTemplate x:Name="zaposleniViewTemplate" DataType="{x:Type viewmodel:ZaposleniViewModel}">
-			<view:ZaposleniView DataContext="{Binding}"/>
+		<DataTemplate x:Name="nadlzeniViewTemplate" DataType="{x:Type viewmodel:NadlezniViewModel}">
+			<view:NadlzeniView DataContext="{Binding}"/>
+		</DataTemplate>
+
+		<DataTemplate x:Name="radniciViewTemplate" DataType="{x:Type viewmodel:RadniciViewModel}">
+			<view:RadniciView DataContext="{Binding}"/>
 		</DataTemplate>
 
 		<DataTemplate x:Name="korisniciViewTemplate" DataType="{x:Type viewmodel:KorisniciViewModel}">
@@ -67,20 +71,20 @@
 			</Button>
 			<Label Content="VODOVOD SERVIS" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="500" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
 		</Grid>
-		
-		<Grid Grid.Row="2" Background="#552B72">
-			<Button x:Name="ZaposleniButton" Content="ZAPOSLENI" HorizontalAlignment="Left" Height="76" Margin="0,80,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="ZaposleniButton_Click"/>
-			<Button x:Name="KorisniciButton" Content="KORISNICI" HorizontalAlignment="Left" Height="78" Margin="0,156,-0.2,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="KorisniciButton_Click"/>
-			<Button x:Name="KvaroviButton" Content="KVAROVI" HorizontalAlignment="Left" Height="78" Margin="0,615,-0.2,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="KvaroviButton_Click"/>
-			<Button x:Name="LokacijaButton" Content="LOKACIJA" HorizontalAlignment="Left" Height="74" Margin="0,541,-0.2,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="LokacijaButton_Click"/>
-			<Button x:Name="DeoOpremeButton" Content="DEO OPREME" HorizontalAlignment="Left" Height="79" Margin="0,462,-0.2,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="DeoOpremeButton_Click"/>
-			<Button x:Name="MagacinButton" Content="MAGACIN" HorizontalAlignment="Left" Height="75" Margin="0,387,-0.2,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="MagacinButton_Click"/>
-			<Button x:Name="RadniNalogButton" Content="RADNI NALOG" HorizontalAlignment="Left" Height="77" Margin="0,310,-0.2,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="RadniNalogButton_Click"/>
-			<Button x:Name="EkipeButton" Content="EKIPE" HorizontalAlignment="Left" Height="77" Margin="0,234,-0.2,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="EkipeButton_Click"/>
-			<Button x:Name="MrezeButton" Content="MREZE" HorizontalAlignment="Left" Height="79" Margin="0,1,-0.2,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="MrezeButton_Click"/>
-			<Button x:Name="RacuniButton" Content="RACUNI" HorizontalAlignment="Left" Height="77" Margin="0,693,-0.2,-0.4" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="RacuniButton_Click"/>
-		</Grid>
 
+		<Grid Grid.Row="2" Background="#552B72">
+			<Button x:Name="NadlezniButton" Content="NADLEZNI" HorizontalAlignment="Left" Height="68" Margin="0,70,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="NadlezniButton_Click"/>
+			<Button x:Name="KorisniciButton" Content="KORISNICI" HorizontalAlignment="Left" Height="69" Margin="0,214,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="KorisniciButton_Click"/>
+			<Button x:Name="KvaroviButton" Content="KVAROVI" HorizontalAlignment="Left" Height="69" Margin="-1,629,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="KvaroviButton_Click"/>
+			<Button x:Name="LokacijaButton" Content="LOKACIJA" HorizontalAlignment="Left" Height="66" Margin="-1,563,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="LokacijaButton_Click"/>
+			<Button x:Name="DeoOpremeButton" Content="DEO OPREME" HorizontalAlignment="Left" Height="71" Margin="-1,492,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="DeoOpremeButton_Click"/>
+			<Button x:Name="MagacinButton" Content="MAGACIN" HorizontalAlignment="Left" Height="66" Margin="0,426,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="MagacinButton_Click"/>
+			<Button x:Name="RadniNalogButton" Content="RADNI NALOG" HorizontalAlignment="Left" Height="68" Margin="0,358,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="RadniNalogButton_Click"/>
+			<Button x:Name="EkipeButton" Content="EKIPE" HorizontalAlignment="Left" Height="70" Margin="-1,283,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="EkipeButton_Click"/>
+			<Button x:Name="MrezeButton" Content="MREZE" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="MrezeButton_Click"/>
+			<Button x:Name="RacuniButton" Content="RACUNI" HorizontalAlignment="Left" Height="68" Margin="-1,698,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="RacuniButton_Click"/>
+			<Button x:Name="RadniciButton" Content="RADNICI" HorizontalAlignment="Left" Height="67" Margin="0,143,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="RadniciButton_Click"/>
+		</Grid>
 		<ContentControl Grid.Row="2" Grid.Column="2" Content="{Binding}"/>
 	</Grid>
 </Window>

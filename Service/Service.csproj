@@ -64,6 +64,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BindableBase.cs" />
+    <Compile Include="Commands\CreateNadlezniCommand.cs" />
+    <Compile Include="Commands\CreateRadnikCommand.cs" />
+    <Compile Include="Commands\DeleteNadlezniCommand.cs" />
+    <Compile Include="Commands\DeleteRadnikCommand.cs" />
+    <Compile Include="Commands\SaveChangesNadlezniCommand.cs" />
+    <Compile Include="Commands\SaveChangesRadnikCommand.cs" />
+    <Compile Include="Commands\UpdateNadlzeniCommand.cs" />
+    <Compile Include="Commands\UpdateRadnikCommand.cs" />
     <Compile Include="Models\Datebase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +88,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Datebase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBManager.cs" />
     <Compile Include="Models\DEO_OPREME.cs">
       <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
@@ -127,6 +137,7 @@
     <Compile Include="Models\ZAPOSLENI.cs">
       <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyICommand.cs" />
     <Compile Include="ViewModels\DeoOpremeViewModel.cs" />
     <Compile Include="ViewModels\EkipeViewModel.cs" />
     <Compile Include="ViewModels\KorisniciViewModel.cs" />
@@ -134,8 +145,12 @@
     <Compile Include="ViewModels\LokacijaViewModel.cs" />
     <Compile Include="ViewModels\MagacinViewModel.cs" />
     <Compile Include="ViewModels\MrezeViewModel.cs" />
+    <Compile Include="ViewModels\NadlezniViewModel.cs" />
     <Compile Include="ViewModels\RacuniViewModel.cs" />
+    <Compile Include="ViewModels\RadniciViewModel.cs" />
     <Compile Include="ViewModels\RadniNalogViewModel.cs" />
+    <Compile Include="ViewModels\UpdateNadlezniViewModel.cs" />
+    <Compile Include="ViewModels\UpdateRadnikViewModel.cs" />
     <Compile Include="ViewModels\ZaposleniViewModel.cs" />
     <Compile Include="Views\DeoOpremeView.xaml.cs">
       <DependentUpon>DeoOpremeView.xaml</DependentUpon>
@@ -161,11 +176,20 @@
     <Compile Include="Views\RacuniView.xaml.cs">
       <DependentUpon>RacuniView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RadniciView.xaml.cs">
+      <DependentUpon>RadniciView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RadniNalogView.xaml.cs">
       <DependentUpon>RadniNalogView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ZaposleniView.xaml.cs">
-      <DependentUpon>ZaposleniView.xaml</DependentUpon>
+    <Compile Include="Views\NadlezniView.xaml.cs">
+      <DependentUpon>NadlezniView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateNadlzeni.xaml.cs">
+      <DependentUpon>UpdateNadlzeni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateRadnik.xaml.cs">
+      <DependentUpon>UpdateRadnik.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -211,11 +235,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\RadniciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RadniNalogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ZaposleniView.xaml">
+    <Page Include="Views\NadlezniView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateNadlzeni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateRadnik.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

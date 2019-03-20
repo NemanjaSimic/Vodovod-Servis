@@ -32,6 +32,7 @@ namespace Service.Models
 				try
 				{
 					dbManager.ZAPOSLENIs.Add(newZaposleni);
+					//dbManager.SaveChanges();
 				}
 				catch (Exception)
 				{
@@ -103,10 +104,9 @@ namespace Service.Models
 		{
 			try
 			{
-				CreateZaposleni(newZaposleni);
 				using (var dbManager = new VodovodEntities())
 				{
-					dbManager.NADLEZNIs.Add(new NADLEZNI() {JMBG_ZAP = newZaposleni.JMBG_ZAP, ZAPOSLENI = newZaposleni });
+					dbManager.NADLEZNIs.Add(newZaposleni.NADLEZNI);
 					dbManager.SaveChanges();
 				}
 			}
@@ -165,10 +165,10 @@ namespace Service.Models
 		{
 			try
 			{
-				CreateZaposleni(newZaposleni);
 				using (var dbManager = new VodovodEntities())
 				{
-					dbManager.RADNIIKs.Add(new RADNIIK() { JMBG_ZAP = newZaposleni.JMBG_ZAP, EKIPA_ID_EK = null, ZAPOSLENI = newZaposleni });
+					dbManager.RADNIIKs.Add(newZaposleni.RADNIIK);
+
 					dbManager.SaveChanges();
 				}
 			}

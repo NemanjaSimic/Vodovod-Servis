@@ -36,7 +36,8 @@ namespace Service.ViewModels
 		public void Save()
 		{
 			try
-			{
+			{				
+				Nadlezni.ZAPOSLENI.NADLEZNI = Nadlezni;
 				DBManager.Instance.UpdateNadlezni(Nadlezni);
 			}
 			catch (Exception)

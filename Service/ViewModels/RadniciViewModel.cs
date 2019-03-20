@@ -81,6 +81,7 @@ namespace Service.ViewModels
 		{
 			try
 			{
+				NewZaposleni.RADNIIK = new RADNIIK() { JMBG_ZAP = NewZaposleni.JMBG_ZAP, ZAPOSLENI = NewZaposleni };
 				DBManager.Instance.CreateRadnik(NewZaposleni);
 				UpdateList();
 				NewZaposleni = new ZAPOSLENI();

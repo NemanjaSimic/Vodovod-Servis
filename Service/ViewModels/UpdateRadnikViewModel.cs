@@ -36,6 +36,7 @@ namespace Service.ViewModels
 		{
 			try
 			{
+				Radnik.ZAPOSLENI.RADNIIK = Radnik;
 				DBManager.Instance.UpdateRadnik(Radnik);
 			}
 			catch (Exception)

@@ -82,6 +82,7 @@ namespace Service.ViewModels
 		{
 			try
 			{
+				NewZaposleni.NADLEZNI = new NADLEZNI() { JMBG_ZAP = NewZaposleni.JMBG_ZAP , ZAPOSLENI = NewZaposleni};
 				DBManager.Instance.CreateNadlezni(NewZaposleni);
 				UpdateList();
 				NewZaposleni = new ZAPOSLENI();
@@ -129,7 +130,7 @@ namespace Service.ViewModels
 					{
 						JMBG_ZAP = SelectedNadlezni.JMBG_ZAP,
 						IME_ZAP = SelectedNadlezni.ZAPOSLENI.IME_ZAP,
-						PREZ_ZAP = SelectedNadlezni.ZAPOSLENI.PREZ_ZAP
+						PREZ_ZAP = SelectedNadlezni.ZAPOSLENI.PREZ_ZAP,
 					}
 				},
 				MyWindow = win,

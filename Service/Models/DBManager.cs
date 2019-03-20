@@ -263,5 +263,124 @@ namespace Service.Models
 			CreateKorisnik(korisnik);
 		}
 		#endregion
+
+		#region Deo Opreme
+
+		public List<DEO_OPREME> GetDEO_OPREMEs()
+		{
+			List<DEO_OPREME> retVal = new List<DEO_OPREME>();
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					retVal = dbManager.DEO_OPREME.ToList();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			return retVal;
+		}
+
+		public void CreateDeoOpreme(DEO_OPREME newDeo)
+		{
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					dbManager.DEO_OPREME.Add(newDeo);
+					dbManager.SaveChanges();
+				}
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
+
+		public void DeleteDeoOpreme(byte idDeo)
+		{
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					dbManager.DEO_OPREME.Remove(dbManager.DEO_OPREME.ToList().Find(d => d.ID_TIP == idDeo));
+					dbManager.SaveChanges();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
+
+		public void UpdateDeoOpreme(DEO_OPREME deo)
+		{
+			DeleteDeoOpreme(deo.ID_TIP);
+			CreateDeoOpreme(deo);
+		}
+		#endregion
+
+		#region Magacin
+		public List<MAGACIN> GetMAGACINs()
+		{
+			List<MAGACIN> retVal = new List<MAGACIN>();
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					retVal = dbManager.MAGACINs.ToList();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			return retVal;
+		}
+
+		public void CreateMagacin(MAGACIN newMagacin)
+		{
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					dbManager.MAGACINs.Add(newMagacin);
+					dbManager.SaveChanges();
+				}
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
+
+		public void DeleteMagacin(string idMag)
+		{
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					dbManager.MAGACINs.Remove(dbManager.MAGACINs.ToList().Find(m => m.ID_MAG.Equals(idMag)));
+					dbManager.SaveChanges();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
+
+		public void UpdateMagacin(MAGACIN magacin)
+		{
+			DeleteMagacin(magacin.ID_MAG);
+			CreateMagacin(magacin);
+		}
+#endregion
 	}
 }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Simic\Desktop\Blok6\Vodovod-Servis\Service\App.xaml
-151968797406
+17-1707008314
 2-1650694868
-72-152789171
+85505529325
 18-709249418
-MainWindow.xaml;Views\DeoOpremeView.xaml;Views\EkipeView.xaml;Views\KorisniciView.xaml;Views\KvarView.xaml;Views\LokacijaView.xaml;Views\MagacinView.xaml;Views\MrezeView.xaml;Views\RacuniView.xaml;Views\RadniciView.xaml;Views\RadniNalogView.xaml;Views\NadlezniView.xaml;Views\UpdateKorisnik.xaml;Views\UpdateNadlzeni.xaml;Views\UpdateRadnik.xaml;
+MainWindow.xaml;Views\DeoOpremeView.xaml;Views\EkipeView.xaml;Views\KorisniciView.xaml;Views\KvarView.xaml;Views\LokacijaView.xaml;Views\MagacinView.xaml;Views\MrezeView.xaml;Views\RacuniView.xaml;Views\RadniciView.xaml;Views\RadniNalogView.xaml;Views\NadlezniView.xaml;Views\UpdateDeo.xaml;Views\UpdateKorisnik.xaml;Views\UpdateMagacin.xaml;Views\UpdateNadlzeni.xaml;Views\UpdateRadnik.xaml;
 
 False
 

@@ -17,8 +17,8 @@ namespace Service.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EKIPA()
         {
-            this.RADNIIKs = new HashSet<RADNIIK>();
             this.NALAZI_U = new HashSet<NALAZI_U>();
+            this.RADNIIKs = new HashSet<RADNIIK>();
         }
     
         public string ID_EK { get; set; }
@@ -30,8 +30,8 @@ namespace Service.Models
     
         public virtual RADNI_NALOG RADNI_NALOG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RADNIIK> RADNIIKs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NALAZI_U> NALAZI_U { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RADNIIK> RADNIIKs { get; set; }
     }
 }

@@ -150,7 +150,7 @@ namespace Service.ViewModels
 		{
 			bool retVal = true;
 
-			if (String.IsNullOrEmpty(NewZaposleni.IME_ZAP))
+			if (String.IsNullOrWhiteSpace(NewZaposleni.IME_ZAP))
 			{
 				ValidationIme = "Ime ne sme biti prazno!";
 				retVal = false;
@@ -160,7 +160,7 @@ namespace Service.ViewModels
 				ValidationIme = String.Empty;
 			}
 
-			if (String.IsNullOrEmpty(NewZaposleni.PREZ_ZAP))
+			if (String.IsNullOrWhiteSpace(NewZaposleni.PREZ_ZAP))
 			{
 				ValidationPrez = "Prezime ne sme biti prazno!";
 				retVal = false;
@@ -170,7 +170,7 @@ namespace Service.ViewModels
 				ValidationPrez = String.Empty;
 			}
 
-			if (String.IsNullOrEmpty(NewZaposleni.JMBG_ZAP))
+			if (String.IsNullOrWhiteSpace(NewZaposleni.JMBG_ZAP))
 			{
 				retVal = false;
 				ValidationJMBG = "JMBG ne sme biti prazan!";

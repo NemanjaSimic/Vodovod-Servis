@@ -39,7 +39,7 @@ namespace Service.Models
 
 					throw;
 				}
-				
+
 			}
 		}
 
@@ -163,44 +163,32 @@ namespace Service.Models
 
 		public void CreateRadnik(ZAPOSLENI newZaposleni)
 		{
-			try
+			using (var dbManager = new VodovodEntities())
 			{
-				using (var dbManager = new VodovodEntities())
-				{
-					dbManager.RADNIIKs.Add(newZaposleni.RADNIIK);
+				dbManager.RADNIIKs.Add(newZaposleni.RADNIIK);
 
-					dbManager.SaveChanges();
-				}
-			}
-			catch (Exception)
-			{
-				throw;
+				dbManager.SaveChanges();
 			}
 		}
 
 		public void DeleteRadnik(string jmbg)
 		{
-			try
+			using (var dbManager = new VodovodEntities())
 			{
-				using (var dbManager = new VodovodEntities())
-				{
-					dbManager.RADNIIKs.Remove(dbManager.RADNIIKs.ToList().Find(n => n.JMBG_ZAP.Equals(jmbg)));
-					dbManager.SaveChanges();
-				}
-				DeleteZaposleni(jmbg);
-
+				dbManager.RADNIIKs.Remove(dbManager.RADNIIKs.ToList().Find(n => n.JMBG_ZAP.Equals(jmbg)));
+				dbManager.SaveChanges();
 			}
-			catch (Exception)
-			{
-
-				throw;
-			}
+			DeleteZaposleni(jmbg);
 		}
 
 		public void UpdateRadnik(RADNIIK radnik)
 		{
-			DeleteRadnik(radnik.JMBG_ZAP);
-			CreateRadnik(radnik.ZAPOSLENI);
+			using (var dbManager = new VodovodEntities())
+			{
+				RADNIIK tempRad = dbManager.RADNIIKs.ToList().Find(n => n.JMBG_ZAP.Equals(radnik.JMBG_ZAP));
+				tempRad.EKIPA_ID_EK = radnik.EKIPA_ID_EK;
+				dbManager.SaveChanges();
+			}
 		}
 		#endregion
 
@@ -241,26 +229,21 @@ namespace Service.Models
 
 		public void DeleteKorisnik(string jmbg)
 		{
-			try
+			using (var dbManager = new VodovodEntities())
 			{
-				using (var dbManager = new VodovodEntities())
-				{
-					dbManager.KORISNIKs.Remove(dbManager.KORISNIKs.ToList().Find(n => n.JMBG_KOR.Equals(jmbg)));
-					dbManager.SaveChanges();
-				}
-
-			}
-			catch (Exception)
-			{
-
-				throw;
+				dbManager.KORISNIKs.Remove(dbManager.KORISNIKs.ToList().Find(n => n.JMBG_KOR.Equals(jmbg)));
+				dbManager.SaveChanges();
 			}
 		}
 
 		public void UpdateKorisnik(KORISNIK korisnik)
 		{
-			DeleteKorisnik(korisnik.JMBG_KOR);
-			CreateKorisnik(korisnik);
+			using (var dbManager = new VodovodEntities())
+			{
+				KORISNIK tempKor = dbManager.KORISNIKs.ToList().Find(n => n.JMBG_KOR.Equals(korisnik.JMBG_KOR));
+				tempKor = korisnik;
+				dbManager.SaveChanges();
+			}
 		}
 		#endregion
 
@@ -280,6 +263,16 @@ namespace Service.Models
 			{
 
 				throw;
+			}
+			return retVal;
+		}
+
+		public DEO_OPREME GetDeoOpremeByID(byte idTip)
+		{
+			DEO_OPREME retVal = new DEO_OPREME();
+			using (var dbManager = new VodovodEntities())
+			{
+				retVal = dbManager.DEO_OPREME.ToList().Find(d => d.ID_TIP == idTip);
 			}
 			return retVal;
 		}
@@ -310,17 +303,22 @@ namespace Service.Models
 					dbManager.SaveChanges();
 				}
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 
-				throw;
+				throw ex;
 			}
 		}
 
 		public void UpdateDeoOpreme(DEO_OPREME deo)
 		{
-			DeleteDeoOpreme(deo.ID_TIP);
-			CreateDeoOpreme(deo);
+			using (var dbManager = new VodovodEntities())
+			{
+				DEO_OPREME temp = dbManager.DEO_OPREME.ToList().Find(d => d.ID_TIP == deo.ID_TIP);
+				temp.TIP_OPREME = deo.TIP_OPREME;
+				dbManager.SaveChanges();
+			}
+
 		}
 		#endregion
 
@@ -378,8 +376,12 @@ namespace Service.Models
 
 		public void UpdateMagacin(MAGACIN magacin)
 		{
-			DeleteMagacin(magacin.ID_MAG);
-			CreateMagacin(magacin);
+			using (var dbManager = new VodovodEntities())
+			{
+				MAGACIN temp = dbManager.MAGACINs.ToList().Find(m => m.ID_MAG.Equals(magacin.ID_MAG));
+				temp.KAPACITET = magacin.KAPACITET;
+				dbManager.SaveChanges();
+			}
 		}
 
 		public MAGACIN GetMagacinById(string id)
@@ -402,6 +404,24 @@ namespace Service.Models
 		#endregion
 
 		#region DeoMagacin
+
+		public List<NALAZI_U> GetNALAZI_Us()
+		{
+			List<NALAZI_U> retVal = new List<NALAZI_U>();
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					retVal = dbManager.NALAZI_U.ToList();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			return retVal;
+		}
 		public void CreateDeoMagacin(NALAZI_U novDeo)
 		{
 			try
@@ -417,6 +437,48 @@ namespace Service.Models
 
 				throw;
 			}
+		}
+
+		public void DeleteDeoMagacin(NALAZI_U deo)
+		{
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					dbManager.NALAZI_U.Remove(dbManager.NALAZI_U.ToList()
+						.Find(d => d.DEO_OPREME_ID_TIP == deo.DEO_OPREME_ID_TIP 
+						&& d.MAGACIN_ID_MAG.Equals(deo.MAGACIN_ID_MAG) 
+						&& d.ID_DEO.Equals(deo.ID_DEO)));
+					dbManager.SaveChanges();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
+
+		public void UpdateDeoMagacin(NALAZI_U deo)
+		{
+			DeleteDeoMagacin(deo);
+			CreateDeoMagacin(deo);
+			//try
+			//{
+			//	using (var dbManager = new VodovodEntities())
+			//	{
+			//		NALAZI_U temp = dbManager.NALAZI_U.ToList()
+			//			.Find(d => d.DEO_OPREME_ID_TIP == deo.DEO_OPREME_ID_TIP
+			//			&& d.MAGACIN_ID_MAG.Equals(deo.MAGACIN_ID_MAG)
+			//			&& d.ID_DEO.Equals(deo.ID_DEO));
+			//		temp.EKIPA_ID_EK = deo.EKIPA_ID_EK;
+			//	}
+			//}
+			//catch (Exception)
+			//{
+
+			//	throw;
+			//}
 		}
 
 		#endregion

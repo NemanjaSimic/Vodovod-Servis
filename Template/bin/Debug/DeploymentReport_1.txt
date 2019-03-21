@@ -1,0 +1,47 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[DEO_OPREME] (Table)
+       [dbo].[EKIPA] (Table)
+       [dbo].[KORISNIK] (Table)
+       [dbo].[KVAR] (Table)
+       [dbo].[LOKACIJA] (Table)
+       [dbo].[MAGACIN] (Table)
+       [dbo].[NADLEZNI] (Table)
+       [dbo].[NALAZI_SE_NA] (Table)
+       [dbo].[NALAZI_U] (Table)
+       [dbo].[PRIJAVLJUJE] (Table)
+       [dbo].[PRIMA] (Table)
+       [dbo].[RACUN] (Table)
+       [dbo].[RADNI_NALOG] (Table)
+       [dbo].[RADNIIK] (Table)
+       [dbo].[VODOVODNA_MREZA] (Table)
+       [dbo].[ZAPOSLENI] (Table)
+       [dbo].[DEO_OPREME_VODOVODNA_MREZA_FK] (Foreign Key)
+       [dbo].[EKIPA_RADNI_NALOG_FK] (Foreign Key)
+       [dbo].[NADLEZNI_ZAPOSLENI_FK] (Foreign Key)
+       [dbo].[NALAZI_SE_NA_LOKACIJA_FK] (Foreign Key)
+       [dbo].[NALAZI_SE_NA_DEO_OPREME_FK] (Foreign Key)
+       [dbo].[NALAZI_U_MAGACIN_FK] (Foreign Key)
+       [dbo].[NALAZI_U_DEO_OPREME_FK] (Foreign Key)
+       [dbo].[NALAZI_U_EKIPA_FK] (Foreign Key)
+       [dbo].[PRIJAVLJUJE_KORISNIK_FK] (Foreign Key)
+       [dbo].[PRIJAVLJUJE_NALAZI_SE_NA_FK] (Foreign Key)
+       [dbo].[PRIJAVLJUJE_KVAR_FK] (Foreign Key)
+       [dbo].[PRIMA_NADLEZNI_FK] (Foreign Key)
+       [dbo].[PRIMA_PRIJAVLJUJE_FK] (Foreign Key)
+       [dbo].[RACUN_PRIMA_FK] (Foreign Key)
+       [dbo].[RADNI_NALOG_PRIMA_FK] (Foreign Key)
+       [dbo].[RADNIIK_ZAPOSLENI_FK] (Foreign Key)
+       [dbo].[RADNIIK_EKIPA_FK] (Foreign Key)
+
+** Supporting actions

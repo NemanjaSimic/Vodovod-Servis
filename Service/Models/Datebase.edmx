@@ -12,6 +12,7 @@
           <Property Name="TIP_OPREME" Type="varchar(max)" Nullable="false" />
           <Property Name="VODOVODNA_MREZA_ID_MREZ" Type="varchar" MaxLength="10" />
           <Property Name="ID_TIP" Type="tinyint" Nullable="false" />
+          <Property Name="DUBINA" Type="tinyint" />
         </EntityType>
         <EntityType Name="EKIPA">
           <Key>
@@ -31,18 +32,6 @@
           <Property Name="IME_KOR" Type="varchar(max)" Nullable="false" />
           <Property Name="PREZ_KOR" Type="varchar(max)" Nullable="false" />
           <Property Name="JMBG_KOR" Type="char" MaxLength="13" Nullable="false" />
-        </EntityType>
-        <EntityType Name="KORISTI">
-          <Key>
-            <PropertyRef Name="EKIPA_ID_EK" />
-            <PropertyRef Name="NALAZI_U_ID_TIP" />
-            <PropertyRef Name="NALAZI_U_ID_MAG" />
-            <PropertyRef Name="NALAZI_U_ID_DEO" />
-          </Key>
-          <Property Name="EKIPA_ID_EK" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="NALAZI_U_ID_TIP" Type="tinyint" Nullable="false" />
-          <Property Name="NALAZI_U_ID_MAG" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="NALAZI_U_ID_DEO" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="KVAR">
           <Key>
@@ -90,10 +79,10 @@
             <PropertyRef Name="DEO_OPREME_ID_TIP" />
             <PropertyRef Name="ID_DEO" />
           </Key>
-          <Property Name="KOLICINA" Type="tinyint" Nullable="false" />
           <Property Name="MAGACIN_ID_MAG" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="DEO_OPREME_ID_TIP" Type="tinyint" Nullable="false" />
           <Property Name="ID_DEO" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EKIPA_ID_EK" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="PRIJAVLJUJE">
           <Key>
@@ -190,34 +179,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ASS_5">
-          <End Role="EKIPA" Type="Self.EKIPA" Multiplicity="1" />
-          <End Role="KORISTI" Type="Self.KORISTI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EKIPA">
-              <PropertyRef Name="ID_EK" />
-            </Principal>
-            <Dependent Role="KORISTI">
-              <PropertyRef Name="EKIPA_ID_EK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ASS_6">
-          <End Role="NALAZI_U" Type="Self.NALAZI_U" Multiplicity="1" />
-          <End Role="KORISTI" Type="Self.KORISTI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NALAZI_U">
-              <PropertyRef Name="DEO_OPREME_ID_TIP" />
-              <PropertyRef Name="MAGACIN_ID_MAG" />
-              <PropertyRef Name="ID_DEO" />
-            </Principal>
-            <Dependent Role="KORISTI">
-              <PropertyRef Name="NALAZI_U_ID_TIP" />
-              <PropertyRef Name="NALAZI_U_ID_MAG" />
-              <PropertyRef Name="NALAZI_U_ID_DEO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="NADLEZNI_ZAPOSLENI_FK">
           <End Role="ZAPOSLENI" Type="Self.ZAPOSLENI" Multiplicity="1" />
           <End Role="NADLEZNI" Type="Self.NADLEZNI" Multiplicity="0..1" />
@@ -263,6 +224,18 @@
             </Principal>
             <Dependent Role="NALAZI_U">
               <PropertyRef Name="DEO_OPREME_ID_TIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NALAZI_U_EKIPA_FK">
+          <End Role="EKIPA" Type="Self.EKIPA" Multiplicity="0..1" />
+          <End Role="NALAZI_U" Type="Self.NALAZI_U" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EKIPA">
+              <PropertyRef Name="ID_EK" />
+            </Principal>
+            <Dependent Role="NALAZI_U">
+              <PropertyRef Name="EKIPA_ID_EK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -404,7 +377,6 @@
           <EntitySet Name="DEO_OPREME" EntityType="Self.DEO_OPREME" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EKIPA" EntityType="Self.EKIPA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KORISNIK" EntityType="Self.KORISNIK" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="KORISTI" EntityType="Self.KORISTI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KVAR" EntityType="Self.KVAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOKACIJA" EntityType="Self.LOKACIJA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MAGACIN" EntityType="Self.MAGACIN" Schema="dbo" store:Type="Tables" />
@@ -426,14 +398,6 @@
             <End Role="RADNI_NALOG" EntitySet="RADNI_NALOG" />
             <End Role="EKIPA" EntitySet="EKIPA" />
           </AssociationSet>
-          <AssociationSet Name="FK_ASS_5" Association="Self.FK_ASS_5">
-            <End Role="EKIPA" EntitySet="EKIPA" />
-            <End Role="KORISTI" EntitySet="KORISTI" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ASS_6" Association="Self.FK_ASS_6">
-            <End Role="NALAZI_U" EntitySet="NALAZI_U" />
-            <End Role="KORISTI" EntitySet="KORISTI" />
-          </AssociationSet>
           <AssociationSet Name="NADLEZNI_ZAPOSLENI_FK" Association="Self.NADLEZNI_ZAPOSLENI_FK">
             <End Role="ZAPOSLENI" EntitySet="ZAPOSLENI" />
             <End Role="NADLEZNI" EntitySet="NADLEZNI" />
@@ -448,6 +412,10 @@
           </AssociationSet>
           <AssociationSet Name="NALAZI_U_DEO_OPREME_FK" Association="Self.NALAZI_U_DEO_OPREME_FK">
             <End Role="DEO_OPREME" EntitySet="DEO_OPREME" />
+            <End Role="NALAZI_U" EntitySet="NALAZI_U" />
+          </AssociationSet>
+          <AssociationSet Name="NALAZI_U_EKIPA_FK" Association="Self.NALAZI_U_EKIPA_FK">
+            <End Role="EKIPA" EntitySet="EKIPA" />
             <End Role="NALAZI_U" EntitySet="NALAZI_U" />
           </AssociationSet>
           <AssociationSet Name="NALAZI_U_MAGACIN_FK" Association="Self.NALAZI_U_MAGACIN_FK">
@@ -503,6 +471,7 @@
           <Property Name="TIP_OPREME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VODOVODNA_MREZA_ID_MREZ" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ID_TIP" Type="Byte" Nullable="false" />
+          <Property Name="DUBINA" Type="Byte" />
           <NavigationProperty Name="VODOVODNA_MREZA" Relationship="Self.DEO_OPREME_VODOVODNA_MREZA_FK" FromRole="DEO_OPREME" ToRole="VODOVODNA_MREZA" />
           <NavigationProperty Name="NALAZI_SE_NA" Relationship="Self.NALAZI_SE_NA_DEO_OPREME_FK" FromRole="DEO_OPREME" ToRole="NALAZI_SE_NA" />
           <NavigationProperty Name="NALAZI_U" Relationship="Self.NALAZI_U_DEO_OPREME_FK" FromRole="DEO_OPREME" ToRole="NALAZI_U" />
@@ -518,8 +487,8 @@
           <Property Name="RADNI_NALOG_PRIMA_JMBG_KOR" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
           <Property Name="RADNI_NALOG_PRIMA_ID_KVAR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="RADNI_NALOG" Relationship="Self.EKIPA_RADNI_NALOG_FK" FromRole="EKIPA" ToRole="RADNI_NALOG" />
+          <NavigationProperty Name="NALAZI_U" Relationship="Self.NALAZI_U_EKIPA_FK" FromRole="EKIPA" ToRole="NALAZI_U" />
           <NavigationProperty Name="RADNIIKs" Relationship="Self.RADNIIK_EKIPA_FK" FromRole="EKIPA" ToRole="RADNIIK" />
-          <NavigationProperty Name="NALAZI_U" Relationship="Self.KORISTI" FromRole="EKIPA" ToRole="NALAZI_U" />
         </EntityType>
         <EntityType Name="KORISNIK">
           <Key>
@@ -584,13 +553,13 @@
             <PropertyRef Name="DEO_OPREME_ID_TIP" />
             <PropertyRef Name="ID_DEO" />
           </Key>
-          <Property Name="KOLICINA" Type="Byte" Nullable="false" />
           <Property Name="MAGACIN_ID_MAG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DEO_OPREME_ID_TIP" Type="Byte" Nullable="false" />
           <Property Name="ID_DEO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EKIPA_ID_EK" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DEO_OPREME" Relationship="Self.NALAZI_U_DEO_OPREME_FK" FromRole="NALAZI_U" ToRole="DEO_OPREME" />
+          <NavigationProperty Name="EKIPA" Relationship="Self.NALAZI_U_EKIPA_FK" FromRole="NALAZI_U" ToRole="EKIPA" />
           <NavigationProperty Name="MAGACIN" Relationship="Self.NALAZI_U_MAGACIN_FK" FromRole="NALAZI_U" ToRole="MAGACIN" />
-          <NavigationProperty Name="EKIPAs" Relationship="Self.KORISTI" FromRole="NALAZI_U" ToRole="EKIPA" />
         </EntityType>
         <EntityType Name="PRIJAVLJUJE">
           <Key>
@@ -724,6 +693,18 @@
               <PropertyRef Name="RADNI_NALOG_PRIMA_JMBG_ZAP" />
               <PropertyRef Name="RADNI_NALOG_PRIMA_JMBG_KOR" />
               <PropertyRef Name="RADNI_NALOG_PRIMA_ID_KVAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NALAZI_U_EKIPA_FK">
+          <End Role="EKIPA" Type="Self.EKIPA" Multiplicity="0..1" />
+          <End Role="NALAZI_U" Type="Self.NALAZI_U" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EKIPA">
+              <PropertyRef Name="ID_EK" />
+            </Principal>
+            <Dependent Role="NALAZI_U">
+              <PropertyRef Name="EKIPA_ID_EK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -885,10 +866,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="KORISTI">
-          <End Role="EKIPA" Type="Self.EKIPA" Multiplicity="*" />
-          <End Role="NALAZI_U" Type="Self.NALAZI_U" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="VodovodEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DEO_OPREME" EntityType="Self.DEO_OPREME" />
           <EntitySet Name="EKIPAs" EntityType="Self.EKIPA" />
@@ -921,6 +898,10 @@
           <AssociationSet Name="EKIPA_RADNI_NALOG_FK" Association="Self.EKIPA_RADNI_NALOG_FK">
             <End Role="RADNI_NALOG" EntitySet="RADNI_NALOG" />
             <End Role="EKIPA" EntitySet="EKIPAs" />
+          </AssociationSet>
+          <AssociationSet Name="NALAZI_U_EKIPA_FK" Association="Self.NALAZI_U_EKIPA_FK">
+            <End Role="EKIPA" EntitySet="EKIPAs" />
+            <End Role="NALAZI_U" EntitySet="NALAZI_U" />
           </AssociationSet>
           <AssociationSet Name="RADNIIK_EKIPA_FK" Association="Self.RADNIIK_EKIPA_FK">
             <End Role="EKIPA" EntitySet="EKIPAs" />
@@ -970,10 +951,6 @@
             <End Role="ZAPOSLENI" EntitySet="ZAPOSLENIs" />
             <End Role="RADNIIK" EntitySet="RADNIIKs" />
           </AssociationSet>
-          <AssociationSet Name="KORISTI" Association="Self.KORISTI">
-            <End Role="EKIPA" EntitySet="EKIPAs" />
-            <End Role="NALAZI_U" EntitySet="NALAZI_U" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -987,6 +964,7 @@
                 <ScalarProperty Name="TIP_OPREME" ColumnName="TIP_OPREME" />
                 <ScalarProperty Name="VODOVODNA_MREZA_ID_MREZ" ColumnName="VODOVODNA_MREZA_ID_MREZ" />
                 <ScalarProperty Name="ID_TIP" ColumnName="ID_TIP" />
+                <ScalarProperty Name="DUBINA" ColumnName="DUBINA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1057,10 +1035,10 @@
           <EntitySetMapping Name="NALAZI_U">
             <EntityTypeMapping TypeName="VodovodModel.NALAZI_U">
               <MappingFragment StoreEntitySet="NALAZI_U">
-                <ScalarProperty Name="KOLICINA" ColumnName="KOLICINA" />
                 <ScalarProperty Name="MAGACIN_ID_MAG" ColumnName="MAGACIN_ID_MAG" />
                 <ScalarProperty Name="DEO_OPREME_ID_TIP" ColumnName="DEO_OPREME_ID_TIP" />
                 <ScalarProperty Name="ID_DEO" ColumnName="ID_DEO" />
+                <ScalarProperty Name="EKIPA_ID_EK" ColumnName="EKIPA_ID_EK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1130,16 +1108,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="KORISTI" TypeName="VodovodModel.KORISTI" StoreEntitySet="KORISTI">
-            <EndProperty Name="EKIPA">
-              <ScalarProperty Name="ID_EK" ColumnName="EKIPA_ID_EK" />
-            </EndProperty>
-            <EndProperty Name="NALAZI_U">
-              <ScalarProperty Name="MAGACIN_ID_MAG" ColumnName="NALAZI_U_ID_MAG" />
-              <ScalarProperty Name="DEO_OPREME_ID_TIP" ColumnName="NALAZI_U_ID_TIP" />
-              <ScalarProperty Name="ID_DEO" ColumnName="NALAZI_U_ID_DEO" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="Service.Views.StanjeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Service.Views"
+             mc:Ignorable="d" 
+              d:DesignHeight="750" d:DesignWidth="800">
+	<Grid Background="Blue">
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition Height="auto" MinHeight="493.6"/>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0" Margin="10,10,-10,3.8">
+			<Button Command="{Binding ReserveCommand}" Content="Rezervisi deo za ekipu" HorizontalAlignment="Left" Height="36" Margin="4,123,0,0" VerticalAlignment="Top" Width="303" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<ComboBox ItemsSource="{Binding Ekipe, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding SelectedEkipa, UpdateSourceTrigger=PropertyChanged}" Margin="47,52,531,168" />
+			<Label Content="ID EKIPE ZA REZERVACIJU DELA:" HorizontalAlignment="Left" Height="38" Margin="10,9,0,0" VerticalAlignment="Top" Width="297" FontWeight="Bold" FontSize="18"/>
+			<TextBlock HorizontalAlignment="Left" Height="22" Margin="47,96,0,0" TextWrapping="Wrap" Text="{Binding ValidationEkipa, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
+			<Button Command="{Binding CancelReservationCommand}" Content="Otkazi rezervaciju dela" HorizontalAlignment="Left" Height="36" Margin="4,185,0,0" VerticalAlignment="Top" Width="303" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+		</Grid>
+		<Grid Grid.Row="1" Margin="0,1.2,0,0.4">
+			<DataGrid ItemsSource="{Binding Stanje, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedStanje, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="397" Margin="10,9,0,0" VerticalAlignment="Top" Width="780">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="ID MAGACINA" Binding="{Binding MAGACIN_ID_MAG, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+					<DataGridTextColumn Header="ID TIPA OPREME"  Binding="{Binding DEO_OPREME_ID_TIP, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+					<DataGridTextColumn Header="ID DELA OPREME"  Binding="{Binding ID_DEO, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+					<DataGridTextColumn Header="ID EKIPE"  Binding="{Binding EKIPA_ID_EK, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+				</DataGrid.Columns>
+			</DataGrid>
+			<Button Command="{Binding DeleteCommand}" Content="Delete" HorizontalAlignment="Left" Height="40" Margin="266,442,0,0" VerticalAlignment="Top" Width="263"/>
+		</Grid>
+	</Grid>
+</UserControl>

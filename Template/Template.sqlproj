@@ -76,9 +76,6 @@
     <Build Include="Schema objects\Schemas\dbo\Tables\EKIPA.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\EKIPA_PK.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\KORISNIK.sql" />
-    <Build Include="Schema objects\Schemas\dbo\Tables\Keys\KORISNIK_PK.sql" />
-    <Build Include="Schema objects\Schemas\dbo\Tables\KORISTI.sql" />
-    <Build Include="Schema objects\Schemas\dbo\Tables\Keys\KORISTI_PK.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\KVAR.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\KVAR_PK.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\LOKACIJA.sql" />
@@ -107,8 +104,6 @@
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\ZAPOSLENI_PK.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\DEO_OPREME_FK.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\EKIPA_FK.sql" />
-    <Build Include="Schema objects\Schemas\dbo\Tables\Keys\KORISITI_FK.sql" />
-    <Build Include="Schema objects\Schemas\dbo\Tables\Keys\KORISTI_FK2.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\NADLEZNI_FK.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\NALAZI_SE_NA_FK.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\NALAZI_SE_NA_FK2.sql" />
@@ -123,5 +118,7 @@
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\RADNI_NALOG_FK.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\PRIMA_FK.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\RADNIK_FK2.sql" />
+    <Build Include="Schema objects\Schemas\dbo\Tables\Keys\NALAZI_U_FK3.sql" />
+    <Build Include="Schema objects\Schemas\dbo\Tables\Keys\KORISNIK_PK.sql" />
   </ItemGroup>
 </Project>

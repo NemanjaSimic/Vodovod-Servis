@@ -96,7 +96,6 @@ namespace Service.ViewModels
 				UpdateList();
 				NewDeo = new DEO_OPREME();
 				IdTip = String.Empty;
-				SelectedMagacin = null;
 			}
 			catch (Exception)
 			{
@@ -122,7 +121,7 @@ namespace Service.ViewModels
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Greska na servisu, izabrani deo ne postoji!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageBox.Show("U magacinu postoje delovi opreme ovog tipa!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
 				UpdateList();
 			}
 		}
@@ -203,12 +202,10 @@ namespace Service.ViewModels
 				{
 					DEO_OPREME_ID_TIP = SelectedDeo.ID_TIP,
 					MAGACIN_ID_MAG = tempMag.ID_MAG,
-					KOLICINA = 0,
 					ID_DEO = IdDeo
 				};
 				DBManager.Instance.CreateDeoMagacin(veza);
 				IdDeo = String.Empty;
-				SelectedMagacin = null;
 				SelectedDeo = null;
 			}
 			catch (Exception)

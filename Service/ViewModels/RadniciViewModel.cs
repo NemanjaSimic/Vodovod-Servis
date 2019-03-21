@@ -15,6 +15,8 @@ namespace Service.ViewModels
 	{
 		private List<RADNIIK> radnici;
 		private ZAPOSLENI newZaposleni;
+		private string validationEkipa;
+		private List<string> ekipe;
 		private string validationIme;
 		private string validationPrez;
 		private string validationJMBG;
@@ -22,14 +24,19 @@ namespace Service.ViewModels
 		public List<RADNIIK> Radnici { get => radnici; set { radnici = value; OnPropertyChanged("Radnici"); } }
 		public ZAPOSLENI NewZaposleni { get => newZaposleni; set { newZaposleni = value; OnPropertyChanged("NewZaposleni"); } }
 		public RADNIIK SelectedRadnik { get; set; }
+		public string SelectedEkipa { get; set; }
+		public List<string> Ekipe { get => ekipe; set { ekipe = value; OnPropertyChanged("Ekipe"); } }
 
 		#region Commands
 		public ICommand CreateCommand { get; set; }
 		public ICommand DeleteCommand { get; set; }
 		public ICommand UpdateCommand { get; set; }
+		public ICommand PutInCommand { get; set; }
+		public ICommand TakeOutCommand { get; set; }
 		#endregion
 
 		#region Validations
+		public string ValidationEkipa { get => validationEkipa; set { validationEkipa = value; OnPropertyChanged("ValidationEkipa"); } }
 		public string ValidationIme { get => validationIme; set { validationIme = value; OnPropertyChanged("ValidationIme"); } }
 		public string ValidationPrez { get => validationPrez; set { validationPrez = value; OnPropertyChanged("ValidationPrez"); } }
 		public string ValidationJMBG { get => validationJMBG; set { validationJMBG = value; OnPropertyChanged("ValidationJMBG"); } }
@@ -38,15 +45,19 @@ namespace Service.ViewModels
 		public RadniciViewModel()
 		{
 			UpdateList();
+			UpdateEkipe();
 			NewZaposleni = new ZAPOSLENI();
 
 			CreateCommand = new CreateRadnikCommand(this);
 			DeleteCommand = new DeleteRadnikCommand(this);
 			UpdateCommand = new UpdateRadnikCommand(this);
+			PutInCommand = new PutInEkipaCommand(this);
+			TakeOutCommand = new TakeOutFromEkipaCommand(this);
 
-			ValidationIme = "Ime ne sme biti prazno!";
-			ValidationPrez = "Prezime ne sme biti prazno!";
-			ValidationJMBG = "JMBG ne sme biti prazan!";
+			ValidationIme = String.Empty;
+			ValidationPrez = String.Empty;
+			ValidationJMBG = String.Empty;
+			ValidationEkipa = String.Empty;
 		}
 
 		public void UpdateList()
@@ -62,13 +73,23 @@ namespace Service.ViewModels
 			}
 		}
 
+		public void UpdateEkipe()
+		{
+			List<EKIPA> tempList = DBManager.Instance.GetEKIPAs();
+			Ekipe = new List<string>();
+			foreach (var item in tempList)
+			{
+				Ekipe.Add(item.ID_EK);
+			}
+		}
+
 		private void GetCredentialsForNadleznis()
 		{
 			List<RADNIIK> tempList = new List<RADNIIK>();
 			ZAPOSLENI tempZaposleni = null;
 			foreach (var item in Radnici)
 			{
-				RADNIIK tempRadnik = new RADNIIK() { JMBG_ZAP = item.JMBG_ZAP };
+				RADNIIK tempRadnik = new RADNIIK() { JMBG_ZAP = item.JMBG_ZAP, EKIPA_ID_EK = item.EKIPA_ID_EK };
 				tempZaposleni = DBManager.Instance.GetZaposleniByJMBG(item.JMBG_ZAP);
 				tempRadnik.ZAPOSLENI = tempZaposleni;
 				tempList.Add(tempRadnik);
@@ -107,7 +128,7 @@ namespace Service.ViewModels
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Greska na servisu, izabrani zaposleni ne postoji!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageBox.Show("Zaposleni se nalazi u nekoj ekipi!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
 				UpdateList();
 			}
 		}
@@ -145,6 +166,58 @@ namespace Service.ViewModels
 		}
 		#endregion
 
+		public void PutInEkipa()
+		{
+			try
+			{
+				if(String.IsNullOrEmpty(SelectedRadnik.EKIPA_ID_EK))
+				{
+					SelectedRadnik.EKIPA_ID_EK = SelectedEkipa;
+					DBManager.Instance.UpdateRadnik(SelectedRadnik);
+				}
+				else
+				{
+					MessageBox.Show("Radnik se vec nalazi u jednoj od ekipa!","Konflikt",MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+				UpdateList();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Greska pri konekciji sa bazom!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
+
+		public bool CanPutIn
+		{
+			get { return ValidatePutIn(); }
+		}
+
+		public void TakeOutFromEkipa()
+		{
+			try
+			{
+				if (!String.IsNullOrEmpty(SelectedRadnik.EKIPA_ID_EK))
+				{
+					SelectedRadnik.EKIPA_ID_EK = null;
+					DBManager.Instance.UpdateRadnik(SelectedRadnik);
+				}
+				else
+				{
+					MessageBox.Show("Radnik se ne nalazi ni u jednoj od ekipa!", "Konflikt", MessageBoxButton.OK, MessageBoxImage.Error);
+
+				}
+				UpdateList();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Greska pri konekciji sa bazom!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
+
+		public bool CanTakeOut
+		{
+			get { return SelectedRadnik == null ? false : true; }
+		}
 		private bool Validate()
 		{
 			bool retVal = true;
@@ -187,6 +260,28 @@ namespace Service.ViewModels
 			else
 			{
 				ValidationJMBG = String.Empty;
+			}
+
+			return retVal;
+		}
+
+		private bool ValidatePutIn()
+		{
+			bool retVal = true;
+
+			if (String.IsNullOrEmpty(SelectedEkipa))
+			{
+				retVal = false;
+				ValidationEkipa = "Izabrati ekipu za ubacivanje radnika!";
+			}
+			else
+			{
+				ValidationEkipa = String.Empty;
+			}
+
+			if (SelectedRadnik == null)
+			{
+				retVal = false;
 			}
 
 			return retVal;

@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="Commands\CancelReservationCommand.cs" />
     <Compile Include="Commands\CreateDeoCommand.cs" />
     <Compile Include="Commands\CreateEkipaCommand.cs" />
     <Compile Include="Commands\CreateKorisnikCommand.cs" />
@@ -77,13 +78,17 @@
     <Compile Include="Commands\DeleteMagacinCommand.cs" />
     <Compile Include="Commands\DeleteNadlezniCommand.cs" />
     <Compile Include="Commands\DeleteRadnikCommand.cs" />
+    <Compile Include="Commands\DeleteStanjeCommand.cs" />
     <Compile Include="Commands\PutDeoCommand.cs" />
     <Compile Include="Commands\PutDeoMagacinCommand.cs" />
+    <Compile Include="Commands\PutInEkipaCommand.cs" />
+    <Compile Include="Commands\ReserveDeoCommand.cs" />
     <Compile Include="Commands\SaveChangesDeoCommand.cs" />
     <Compile Include="Commands\SaveChangesKorisnikCommand.cs" />
     <Compile Include="Commands\SaveChangesMagacinCommand.cs" />
     <Compile Include="Commands\SaveChangesNadlezniCommand.cs" />
     <Compile Include="Commands\SaveChangesRadnikCommand.cs" />
+    <Compile Include="Commands\TakeOutFromEkipaCommand.cs" />
     <Compile Include="Commands\UpdateDeoCommand.cs" />
     <Compile Include="Commands\UpdateEkipaCommand.cs" />
     <Compile Include="Commands\UpdateKorisnikCommand.cs" />
@@ -168,6 +173,7 @@
     <Compile Include="ViewModels\RacuniViewModel.cs" />
     <Compile Include="ViewModels\RadniciViewModel.cs" />
     <Compile Include="ViewModels\RadniNalogViewModel.cs" />
+    <Compile Include="ViewModels\StanjeViewModel.cs" />
     <Compile Include="ViewModels\UpdateDeoViewModel.cs" />
     <Compile Include="ViewModels\UpdateKorisnikViewModel.cs" />
     <Compile Include="ViewModels\UpdateMagacinViewModel.cs" />
@@ -209,6 +215,9 @@
     </Compile>
     <Compile Include="Views\NadlezniView.xaml.cs">
       <DependentUpon>NadlezniView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StanjeView.xaml.cs">
+      <DependentUpon>StanjeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UpdateDeo.xaml.cs">
       <DependentUpon>UpdateDeo.xaml</DependentUpon>
@@ -285,6 +294,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\StanjeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UpdateDeo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -343,7 +356,6 @@
   <ItemGroup>
     <Resource Include="Pictures\close_icon_png_289229.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\Datebase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

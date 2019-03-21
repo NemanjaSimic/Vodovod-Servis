@@ -24,6 +24,7 @@ namespace Service.Models
         public string TIP_OPREME { get; set; }
         public string VODOVODNA_MREZA_ID_MREZ { get; set; }
         public byte ID_TIP { get; set; }
+        public Nullable<byte> DUBINA { get; set; }
     
         public virtual VODOVODNA_MREZA VODOVODNA_MREZA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

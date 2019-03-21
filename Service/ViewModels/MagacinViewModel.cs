@@ -91,12 +91,13 @@ namespace Service.ViewModels
 		{
 			try
 			{
+				MAGACIN m = DBManager.Instance.GetMagacinById(SelectedMagacin.ID_MAG);
 				DBManager.Instance.DeleteMagacin(SelectedMagacin.ID_MAG);
 				UpdateList();
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Greska na servisu, izabrani magacin ne postoji!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageBox.Show("Magacin mora biti prazan da bi se izbrisao!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
 				UpdateList();
 			}
 		}

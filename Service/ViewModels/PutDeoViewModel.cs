@@ -66,7 +66,6 @@ namespace Service.ViewModels
 					DEO_OPREME = SelectedDeo,
 					MAGACIN = SelectedMagacin,
 					MAGACIN_ID_MAG = SelectedMagacin.ID_MAG,
-					KOLICINA = 0
 				};
 				DBManager.Instance.CreateDeoMagacin(novDeo);
 				IdDeo = String.Empty;

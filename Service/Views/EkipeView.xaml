@@ -11,7 +11,7 @@
 			<RowDefinition/>
 			<RowDefinition Height="auto" MinHeight="493.6"/>
 		</Grid.RowDefinitions>
-		<Grid Grid.Row="0" Margin="10,10,-10,389.4" Grid.RowSpan="2">
+		<Grid Grid.Row="0" Margin="10,10,-10,3.8">
 			<Button Command="{Binding CreateCommand}" Content="Create New Ekipa" HorizontalAlignment="Left" Height="36" Margin="10,73,0,0" VerticalAlignment="Top" Width="393" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
 			<TextBox HorizontalAlignment="Left" Height="43" Margin="181,0,0,0" TextWrapping="Wrap" Text="{Binding NewEkipa.ID_EK, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
 			<Label Content="ID EKIPE:" HorizontalAlignment="Left" Height="43" Margin="10,0,0,0" VerticalAlignment="Top" Width="129" FontWeight="Bold" FontSize="18"/>

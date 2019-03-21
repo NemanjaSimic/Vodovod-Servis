@@ -67,9 +67,9 @@ namespace Service
 			DataContext = new DeoOpremeViewModel();
 		}
 
-		private void LokacijaButton_Click(object sender, RoutedEventArgs e)
+		private void StanjeButton_Click(object sender, RoutedEventArgs e)
 		{
-			DataContext = new LokacijaViewModel();
+			DataContext = new StanjeViewModel();
 		}
 
 		private void KvaroviButton_Click(object sender, RoutedEventArgs e)

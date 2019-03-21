@@ -53,6 +53,10 @@
 			<view:DeoOpremeView DataContext="{Binding}"/>
 		</DataTemplate>
 
+		<DataTemplate x:Name="stanjeOpremeViewTemplate" DataType="{x:Type viewmodel:StanjeViewModel}">
+			<view:StanjeView DataContext="{Binding}"/>
+		</DataTemplate>
+
 	</Window.Resources>
 	<Grid HorizontalAlignment="Right" Width="1000">
 		<Grid.RowDefinitions>
@@ -76,7 +80,7 @@
 			<Button x:Name="NadlezniButton" Content="NADLEZNI" HorizontalAlignment="Left" Height="68" Margin="0,70,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="NadlezniButton_Click"/>
 			<Button x:Name="KorisniciButton" Content="KORISNICI" HorizontalAlignment="Left" Height="69" Margin="0,214,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="KorisniciButton_Click"/>
 			<Button x:Name="KvaroviButton" Content="KVAROVI" HorizontalAlignment="Left" Height="69" Margin="-1,629,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="KvaroviButton_Click"/>
-			<Button x:Name="LokacijaButton" Content="LOKACIJA" HorizontalAlignment="Left" Height="66" Margin="-1,563,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="LokacijaButton_Click"/>
+			<Button x:Name="StanjeButton" Content="STANJE" HorizontalAlignment="Left" Height="66" Margin="-1,563,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="StanjeButton_Click"/>
 			<Button x:Name="DeoOpremeButton" Content="DEO OPREME" HorizontalAlignment="Left" Height="71" Margin="-1,492,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="DeoOpremeButton_Click"/>
 			<Button x:Name="MagacinButton" Content="MAGACIN" HorizontalAlignment="Left" Height="66" Margin="0,426,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="MagacinButton_Click"/>
 			<Button x:Name="RadniNalogButton" Content="RADNI NALOG" HorizontalAlignment="Left" Height="68" Margin="0,358,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" FontSize="24" BorderThickness="0" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF250D35" Click="RadniNalogButton_Click"/>

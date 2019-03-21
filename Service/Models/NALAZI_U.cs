@@ -14,20 +14,13 @@ namespace Service.Models
     
     public partial class NALAZI_U
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NALAZI_U()
-        {
-            this.EKIPAs = new HashSet<EKIPA>();
-        }
-    
-        public byte KOLICINA { get; set; }
         public string MAGACIN_ID_MAG { get; set; }
         public byte DEO_OPREME_ID_TIP { get; set; }
         public string ID_DEO { get; set; }
+        public string EKIPA_ID_EK { get; set; }
     
         public virtual DEO_OPREME DEO_OPREME { get; set; }
+        public virtual EKIPA EKIPA { get; set; }
         public virtual MAGACIN MAGACIN { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EKIPA> EKIPAs { get; set; }
     }
 }

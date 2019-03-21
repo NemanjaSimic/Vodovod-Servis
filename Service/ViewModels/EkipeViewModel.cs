@@ -92,7 +92,7 @@ namespace Service.ViewModels
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Greska na servisu, izabrana ekipa ne postoji!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageBox.Show("Izabrana ekipa nije prazna!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
 				UpdateList();
 			}
 		}

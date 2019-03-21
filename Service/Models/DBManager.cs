@@ -318,6 +318,7 @@ namespace Service.Models
 			{
 				DEO_OPREME temp = dbManager.DEO_OPREME.ToList().Find(d => d.ID_TIP == deo.ID_TIP);
 				temp.TIP_OPREME = deo.TIP_OPREME;
+				temp.DUBINA = deo.DUBINA;
 				dbManager.SaveChanges();
 			}
 

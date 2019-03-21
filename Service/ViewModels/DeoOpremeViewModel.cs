@@ -18,9 +18,11 @@ namespace Service.ViewModels
 		private string idTip;
 		private string validationMagacin;
 		private string idDeo;
+		private string dubina;
 		private string validationTip;
 		private string validationID;
 		private string validationDeo;
+		private string validationDubina;
 
 		#region Properties
 		public List<DEO_OPREME> Deo_Opremes { get => deo_Opremes; set { deo_Opremes = value; OnPropertyChanged("Deo_Opremes"); } }
@@ -30,6 +32,7 @@ namespace Service.ViewModels
 		public string IdTip { get => idTip; set { idTip = value; OnPropertyChanged("IdTip"); } }
 		public string IdDeo { get => idDeo; set { idDeo = value; OnPropertyChanged("IdDeo"); } }
 		public List<string> Magacins { get; set; }
+		public string Dubina { get => dubina; set { dubina = value; OnPropertyChanged("Dubina"); } }
 		#endregion
 
 		#region Commands
@@ -44,6 +47,7 @@ namespace Service.ViewModels
 		public string ValidationTip { get => validationTip; set { validationTip = value; OnPropertyChanged("ValidationTip"); } }
 		public string ValidationID { get => validationID; set { validationID = value; OnPropertyChanged("ValidationID"); } }
 		public string ValidationMagacin { get => validationMagacin; set { validationMagacin = value; OnPropertyChanged("ValidationMagacin"); } }
+		public string ValidationDubina { get => validationDubina; set { validationDubina = value; OnPropertyChanged("ValidationDubina"); } }
 		#endregion
 
 		public DeoOpremeViewModel()
@@ -99,6 +103,7 @@ namespace Service.ViewModels
 				UpdateList();
 				NewDeo = new DEO_OPREME();
 				IdTip = String.Empty;
+				Dubina = String.Empty;
 			}
 			catch (Exception)
 			{
@@ -143,8 +148,10 @@ namespace Service.ViewModels
 				Deo = new DEO_OPREME()
 				{
 					TIP_OPREME = SelectedDeo.TIP_OPREME,
-					ID_TIP = SelectedDeo.ID_TIP
+					ID_TIP = SelectedDeo.ID_TIP,
+					DUBINA = SelectedDeo.DUBINA
 				},
+				Dubina = SelectedDeo.DUBINA.ToString(),
 				MyWindow = win,
 				DOVM = this
 			};
@@ -250,6 +257,31 @@ namespace Service.ViewModels
 				{
 					NewDeo.ID_TIP = (byte)idTipTemp;
 					ValidationID = String.Empty;
+				}
+			}
+
+			if (String.IsNullOrWhiteSpace(Dubina))
+			{
+				ValidationDubina = "Dubina je obavezno poslje!";
+				retVal = false;
+			}
+			else if (!Dubina.All(char.IsNumber))
+			{
+				ValidationDubina = "Dubina mora biti broj!";
+				retVal = false;
+			}
+			else
+			{
+				Int32.TryParse(Dubina, out int d);
+				if (d > 20 || d < 0)
+				{
+					ValidationDubina = "Dubina mora biti u rangu brojeva 0 - 20!";
+					retVal = false;
+				}
+				else
+				{
+					ValidationDubina = String.Empty;
+					NewDeo.DUBINA = (byte)d;
 				}
 			}
 			return retVal;

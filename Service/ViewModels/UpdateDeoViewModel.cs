@@ -14,11 +14,15 @@ namespace Service.ViewModels
 	{
 		private string validationTip;
 		private DEO_OPREME deo;
+		private string dubina;
+		private string validationDubina;
 
 		public string ValidationTip { get => validationTip; set { validationTip = value; OnPropertyChanged("ValidationTip"); } }
 		public DEO_OPREME Deo { get => deo; set { deo = value; OnPropertyChanged("Deo"); } }
 		public Window MyWindow { get; set; }
 		public DeoOpremeViewModel DOVM { get; set; }
+		public string Dubina { get => dubina; set { dubina = value; OnPropertyChanged("Dubina"); } }
+		public string ValidationDubina { get => validationDubina; set { validationDubina = value; OnPropertyChanged("ValidationDubina"); } }
 
 		public ICommand SaveChangesCommand { get; set; }
 
@@ -59,6 +63,31 @@ namespace Service.ViewModels
 			else
 			{
 				ValidationTip = String.Empty;
+			}
+
+			if (String.IsNullOrWhiteSpace(Dubina))
+			{
+				ValidationDubina = "Dubina je obavezno poslje!";
+				retVal = false;
+			}
+			else if (!Dubina.All(char.IsNumber))
+			{
+				ValidationDubina = "Dubina mora biti broj!";
+				retVal = false;
+			}
+			else
+			{
+				Int32.TryParse(Dubina, out int d);
+				if (d > 20 || d < 0)
+				{
+					ValidationDubina = "Dubina mora biti u rangu brojeva 0 - 20!";
+					retVal = false;
+				}
+				else
+				{
+					ValidationDubina = String.Empty;
+					Deo.DUBINA = (byte)d;
+				}
 			}
 
 			return retVal;

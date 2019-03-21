@@ -66,11 +66,13 @@
     </ApplicationDefinition>
     <Compile Include="BindableBase.cs" />
     <Compile Include="Commands\CreateDeoCommand.cs" />
+    <Compile Include="Commands\CreateEkipaCommand.cs" />
     <Compile Include="Commands\CreateKorisnikCommand.cs" />
     <Compile Include="Commands\CreateMagacinCommand.cs" />
     <Compile Include="Commands\CreateNadlezniCommand.cs" />
     <Compile Include="Commands\CreateRadnikCommand.cs" />
     <Compile Include="Commands\DeleteDeoCommand.cs" />
+    <Compile Include="Commands\DeleteEkipaCommand.cs" />
     <Compile Include="Commands\DeleteKorisnikCommand.cs" />
     <Compile Include="Commands\DeleteMagacinCommand.cs" />
     <Compile Include="Commands\DeleteNadlezniCommand.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Commands\SaveChangesNadlezniCommand.cs" />
     <Compile Include="Commands\SaveChangesRadnikCommand.cs" />
     <Compile Include="Commands\UpdateDeoCommand.cs" />
+    <Compile Include="Commands\UpdateEkipaCommand.cs" />
     <Compile Include="Commands\UpdateKorisnikCommand.cs" />
     <Compile Include="Commands\UpdateMagacinCommand.cs" />
     <Compile Include="Commands\UpdateNadlzeniCommand.cs" />

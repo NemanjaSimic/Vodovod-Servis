@@ -5,8 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Service.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="750" d:DesignWidth="800">
+	<Grid Background="Blue">
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition Height="auto" MinHeight="493.6"/>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0" Margin="10,10,-10,389.4" Grid.RowSpan="2">
+			<Button Command="{Binding CreateCommand}" Content="Create New Ekipa" HorizontalAlignment="Left" Height="36" Margin="10,73,0,0" VerticalAlignment="Top" Width="393" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<TextBox HorizontalAlignment="Left" Height="43" Margin="181,0,0,0" TextWrapping="Wrap" Text="{Binding NewEkipa.ID_EK, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
+			<Label Content="ID EKIPE:" HorizontalAlignment="Left" Height="43" Margin="10,0,0,0" VerticalAlignment="Top" Width="129" FontWeight="Bold" FontSize="18"/>
+			<TextBlock HorizontalAlignment="Left" Height="20" Margin="181,48,0,0" TextWrapping="Wrap" Text="{Binding ValidationID, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
+		</Grid>
+		<Grid Grid.Row="1" Margin="0,1.2,0,0.4">
+			<DataGrid ItemsSource="{Binding Ekipas, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedEkipa, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="397" Margin="10,9,0,0" VerticalAlignment="Top" Width="780">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="ID EKIPE" Binding="{Binding ID_EK, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+					<DataGridTextColumn Header="BROJ RADNIKA"  Binding="{Binding BR_RAD, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+				</DataGrid.Columns>
+			</DataGrid>
+			<Button Command="{Binding UpdateCommand}" Content="Update" HorizontalAlignment="Left" Height="39" Margin="10,443,0,0" VerticalAlignment="Top" Width="263"/>
+			<Button Command="{Binding DeleteCommand}" Content="Delete" HorizontalAlignment="Left" Height="40" Margin="527,442,0,0" VerticalAlignment="Top" Width="263"/>
+		</Grid>
+	</Grid>
 </UserControl>

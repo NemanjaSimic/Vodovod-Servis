@@ -420,5 +420,82 @@ namespace Service.Models
 		}
 
 		#endregion
+
+		#region Ekipa
+		public List<EKIPA> GetEKIPAs()
+		{
+			List<EKIPA> retVal = new List<EKIPA>();
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					retVal = dbManager.EKIPAs.ToList();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			return retVal;
+		}
+
+		public void CreateEkipa(EKIPA newEkipa)
+		{
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					dbManager.EKIPAs.Add(newEkipa);
+					dbManager.SaveChanges();
+				}
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
+
+		public void DeleteEkipa(string idEkipa)
+		{
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					dbManager.EKIPAs.Remove(dbManager.EKIPAs.ToList().Find(e => e.ID_EK.Equals(idEkipa)));
+					dbManager.SaveChanges();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
+
+		public void UpdateEkipa(EKIPA ekipa)
+		{
+			DeleteEkipa(ekipa.ID_EK);
+			CreateEkipa(ekipa);
+		}
+
+		public EKIPA GetEkipaById(string id)
+		{
+			EKIPA retVal = new EKIPA();
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					retVal = dbManager.EKIPAs.ToList().Find(e => e.ID_EK.Equals(id));
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			return retVal;
+		}
+		#endregion
 	}
 }

@@ -18,34 +18,49 @@ namespace Service.ViewModels
 		private string validationTip;
 		private string validationID;
 		private string idTip;
+		private string validationMagacin;
+		private string idDeo;
+		private string validationDeo;
 
 		public List<DEO_OPREME> Deo_Opremes { get => deo_Opremes; set { deo_Opremes = value; OnPropertyChanged("Deo_Opremes"); } }
 		public DEO_OPREME NewDeo { get => newDeo; set { newDeo = value; OnPropertyChanged("NewDeo"); } }
 		public DEO_OPREME SelectedDeo { get; set; }
+		public string SelectedMagacin { get; set; }
 		public string IdTip { get => idTip; set { idTip = value; OnPropertyChanged("IdTip"); } }
+		public string IdDeo { get => idDeo; set { idDeo = value; OnPropertyChanged("IdDeo"); } }
+		public List<string> Magacins { get; set; }
 
 		#region Commands
 		public ICommand CreateCommand { get; set; }
 		public ICommand DeleteCommand { get; set; }
 		public ICommand UpdateCommand { get; set; }
+		public ICommand PutCommand { get; set; }
 		#endregion
 
 		#region Validations
+		public string ValidationDeo { get => validationDeo; set { validationDeo = value; OnPropertyChanged("ValidationDeo"); } }
 		public string ValidationTip { get => validationTip; set { validationTip = value; OnPropertyChanged("ValidationTip"); } }
 		public string ValidationID { get => validationID; set { validationID = value; OnPropertyChanged("ValidationID"); } }
+		public string ValidationMagacin { get => validationMagacin; set { validationMagacin = value; OnPropertyChanged("ValidationMagacin"); } }
 		#endregion
 
 		public DeoOpremeViewModel()
 		{
-			UpdateList();
 			NewDeo = new DEO_OPREME();
+			Magacins = new List<string>();
 
 			CreateCommand = new CreateDeoCommand(this);
 			DeleteCommand = new DeleteDeoCommand(this);
 			UpdateCommand = new UpdateDeoCommand(this);
+			PutCommand = new PutDeoCommand(this);
 
-			ValidationTip = "Naziv ne sme biti prazan!";
-			ValidationID = "ID TIP ne sme biti prazan!";
+			ValidationTip = String.Empty;
+			ValidationID = String.Empty;
+			SelectedMagacin = String.Empty;
+			ValidationMagacin = String.Empty;
+
+
+			UpdateList();
 		}
 
 		public void UpdateList()
@@ -53,6 +68,7 @@ namespace Service.ViewModels
 			try
 			{
 				Deo_Opremes = DBManager.Instance.GetDEO_OPREMEs();
+				UpdateMagacins();
 			}
 			catch (Exception)
 			{
@@ -60,17 +76,27 @@ namespace Service.ViewModels
 			}
 		}
 
+		public void UpdateMagacins()
+		{
+			List<MAGACIN> tempList = DBManager.Instance.GetMAGACINs();
+			foreach (var item in tempList)
+			{
+				Magacins.Add(item.ID_MAG);
+			}
+
+		}
+
 
 		#region CRUD
 		public void Create()
 		{
 			try
-			{			
+			{
 				DBManager.Instance.CreateDeoOpreme(NewDeo);
 				UpdateList();
 				NewDeo = new DEO_OPREME();
 				IdTip = String.Empty;
-
+				SelectedMagacin = null;
 			}
 			catch (Exception)
 			{
@@ -130,6 +156,66 @@ namespace Service.ViewModels
 		}
 		#endregion
 
+		public bool CanPut
+		{
+			get
+			{
+				bool retVal = true;
+				if (SelectedDeo == null)
+				{
+					retVal = false;
+				}
+
+				if (String.IsNullOrEmpty(IdDeo))
+				{
+					ValidationDeo = "ID dela ne sme biti prazan!";
+					retVal = false;
+				}
+				else if (IdDeo.Length > 10)
+				{
+					ValidationDeo = "ID dela ne sme biti duzi od 10 karaktera!";
+					retVal = false;
+				}
+				else
+				{
+					ValidationDeo = String.Empty;
+				}
+
+				if (String.IsNullOrEmpty(SelectedMagacin))
+				{
+					ValidationMagacin = "Magacin mora biti izabran!";
+					retVal = false;
+				}
+				else
+				{
+					ValidationMagacin = String.Empty;
+				}
+				return retVal;
+			}
+		}
+
+		public void Put()
+		{
+			try
+			{
+				MAGACIN tempMag = DBManager.Instance.GetMagacinById(SelectedMagacin);
+				NALAZI_U veza = new NALAZI_U()
+				{
+					DEO_OPREME_ID_TIP = SelectedDeo.ID_TIP,
+					MAGACIN_ID_MAG = tempMag.ID_MAG,
+					KOLICINA = 0,
+					ID_DEO = IdDeo
+				};
+				DBManager.Instance.CreateDeoMagacin(veza);
+				IdDeo = String.Empty;
+				SelectedMagacin = null;
+				SelectedDeo = null;
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Deo sa datim ID-em vec postoji!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
 		private bool Validate()
 		{
 			bool retVal = true;

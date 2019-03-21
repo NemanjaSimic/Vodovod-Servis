@@ -12,13 +12,21 @@
 			<RowDefinition Height="auto" MinHeight="493.6"/>
 		</Grid.RowDefinitions>
 		<Grid Grid.Row="0" Margin="10,10,-10,389.4" Grid.RowSpan="2">
-			<Button Command="{Binding CreateCommand}" Content="Create New Deo Opreme" HorizontalAlignment="Left" Height="36" Margin="0,211,0,0" VerticalAlignment="Top" Width="780" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
-			<TextBox HorizontalAlignment="Left" Height="43" Margin="259,0,0,0" TextWrapping="Wrap" Text="{Binding NewDeo.TIP_OPREME, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
-			<TextBox HorizontalAlignment="Left" Height="43" Margin="259,68,0,0" TextWrapping="Wrap" Text="{Binding IdTip, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
-			<Label Content="NAZIV TIPA OPREME:" HorizontalAlignment="Left" Height="43" Margin="10,0,0,0" VerticalAlignment="Top" Width="244" FontWeight="Bold" FontSize="18"/>
-			<Label Content="ID TIPA OPREME:" HorizontalAlignment="Left" Height="43" Margin="9,68,0,0" VerticalAlignment="Top" Width="244" FontSize="18" FontWeight="Bold"/>
-			<TextBlock HorizontalAlignment="Left" Height="20" Margin="259,48,0,0" TextWrapping="Wrap" Text="{Binding ValidationTip, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
-			<TextBlock HorizontalAlignment="Left" Height="20" Margin="259,116,0,0" TextWrapping="Wrap" Text="{Binding ValidationID, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
+			<TextBox HorizontalAlignment="Left" Height="43"  TextWrapping="Wrap" Text="{Binding IdDeo, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20" Margin="490,134,0,0"/>
+			<Label Content="ID DELA OPREME:" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="164" FontSize="18" FontWeight="Bold" Margin="520,93,0,0"/>
+			<TextBlock HorizontalAlignment="Left" Height="20"  TextWrapping="Wrap" Text="{Binding ValidationDeo, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red" Margin="490,182,0,0" />
+
+			<Button Command="{Binding CreateCommand}" Content="Create New Tip Opreme" HorizontalAlignment="Left" Height="36" Margin="10,207,0,0" VerticalAlignment="Top" Width="317" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<TextBox HorizontalAlignment="Left" Height="43" Margin="46,25,0,0" TextWrapping="Wrap" Text="{Binding NewDeo.TIP_OPREME, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
+			<TextBox HorizontalAlignment="Left" Height="43" Margin="46,134,0,0" TextWrapping="Wrap" Text="{Binding IdTip, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
+			<Label Content="NAZIV TIPA OPREME:" HorizontalAlignment="Left" Height="34" Margin="56,-9,0,0" VerticalAlignment="Top" Width="194" FontWeight="Bold" FontSize="18"/>
+			<Label Content="ID TIPA OPREME:" HorizontalAlignment="Left" Height="31" Margin="74,98,0,0" VerticalAlignment="Top" Width="156" FontSize="18" FontWeight="Bold"/>
+			<TextBlock HorizontalAlignment="Left" Height="20" Margin="46,73,0,0" TextWrapping="Wrap" Text="{Binding ValidationTip, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
+			<TextBlock HorizontalAlignment="Left" Height="20" Margin="46,182,0,0" TextWrapping="Wrap" Text="{Binding ValidationID, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
+			<Label Content="MAGACIN:" HorizontalAlignment="Center" Height="34" Margin="548,-5,150,0" VerticalAlignment="Top" Width="102" FontSize="18" FontWeight="Bold"/>
+			<ComboBox ItemsSource="{Binding Magacins}" SelectedValue="{Binding SelectedMagacin}" Margin="490,29,88,303" />
+			<TextBlock HorizontalAlignment="Left" Height="20" Margin="490,68,0,0" TextWrapping="Wrap" Text="{Binding ValidationMagacin, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
+			<Button Command="{Binding PutCommand}" Content="Create New Deo Opreme" HorizontalAlignment="Left" Height="36" Margin="440,204,0,0" VerticalAlignment="Top" Width="328" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
 		</Grid>
 		<Grid Grid.Row="1">
 			<DataGrid ItemsSource="{Binding Deo_Opremes, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedDeo, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="397" Margin="10,9,0,0" VerticalAlignment="Top" Width="780">
@@ -27,7 +35,7 @@
 					<DataGridTextColumn Header="NAZIV TIPA OPREME"  Binding="{Binding TIP_OPREME, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
 				</DataGrid.Columns>
 			</DataGrid>
-			<Button Command="{Binding UpdateCommand}" Content="Update" HorizontalAlignment="Left" Height="39" Margin="10,443,0,0" VerticalAlignment="Top" Width="263"/>
+			<Button Command="{Binding UpdateCommand}" Content="Update" HorizontalAlignment="Left" Height="40" Margin="10,442,0,0" VerticalAlignment="Top" Width="263"/>
 			<Button Command="{Binding DeleteCommand}" Content="Delete" HorizontalAlignment="Left" Height="40" Margin="527,442,0,0" VerticalAlignment="Top" Width="263"/>
 		</Grid>
 	</Grid>

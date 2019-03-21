@@ -75,6 +75,8 @@
     <Compile Include="Commands\DeleteMagacinCommand.cs" />
     <Compile Include="Commands\DeleteNadlezniCommand.cs" />
     <Compile Include="Commands\DeleteRadnikCommand.cs" />
+    <Compile Include="Commands\PutDeoCommand.cs" />
+    <Compile Include="Commands\PutDeoMagacinCommand.cs" />
     <Compile Include="Commands\SaveChangesDeoCommand.cs" />
     <Compile Include="Commands\SaveChangesKorisnikCommand.cs" />
     <Compile Include="Commands\SaveChangesMagacinCommand.cs" />
@@ -159,6 +161,7 @@
     <Compile Include="ViewModels\MagacinViewModel.cs" />
     <Compile Include="ViewModels\MrezeViewModel.cs" />
     <Compile Include="ViewModels\NadlezniViewModel.cs" />
+    <Compile Include="ViewModels\PutDeoViewModel.cs" />
     <Compile Include="ViewModels\RacuniViewModel.cs" />
     <Compile Include="ViewModels\RadniciViewModel.cs" />
     <Compile Include="ViewModels\RadniNalogViewModel.cs" />
@@ -188,6 +191,9 @@
     </Compile>
     <Compile Include="Views\MrezeView.xaml.cs">
       <DependentUpon>MrezeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PutDeoView.xaml.cs">
+      <DependentUpon>PutDeoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RacuniView.xaml.cs">
       <DependentUpon>RacuniView.xaml</DependentUpon>
@@ -253,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MrezeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PutDeoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -381,6 +381,44 @@ namespace Service.Models
 			DeleteMagacin(magacin.ID_MAG);
 			CreateMagacin(magacin);
 		}
-#endregion
+
+		public MAGACIN GetMagacinById(string id)
+		{
+			MAGACIN retVal = new MAGACIN();
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					retVal = dbManager.MAGACINs.ToList().Find(m => m.ID_MAG.Equals(id));
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			return retVal;
+		}
+		#endregion
+
+		#region DeoMagacin
+		public void CreateDeoMagacin(NALAZI_U novDeo)
+		{
+			try
+			{
+				using (var dbManager = new VodovodEntities())
+				{
+					dbManager.NALAZI_U.Add(novDeo);
+					dbManager.SaveChanges();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
+
+		#endregion
 	}
 }

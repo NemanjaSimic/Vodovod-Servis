@@ -21,11 +21,13 @@ namespace Service.ViewModels
 		private string validationPrez;
 		private string validationJMBG;
 
+		#region Properties
 		public List<RADNIIK> Radnici { get => radnici; set { radnici = value; OnPropertyChanged("Radnici"); } }
 		public ZAPOSLENI NewZaposleni { get => newZaposleni; set { newZaposleni = value; OnPropertyChanged("NewZaposleni"); } }
 		public RADNIIK SelectedRadnik { get; set; }
 		public string SelectedEkipa { get; set; }
 		public List<string> Ekipe { get => ekipe; set { ekipe = value; OnPropertyChanged("Ekipe"); } }
+		#endregion
 
 		#region Commands
 		public ICommand CreateCommand { get; set; }
@@ -146,11 +148,13 @@ namespace Service.ViewModels
 			{
 				Radnik = new RADNIIK()
 				{ JMBG_ZAP = SelectedRadnik.JMBG_ZAP,
+					EKIPA_ID_EK = SelectedRadnik.EKIPA_ID_EK,
 					ZAPOSLENI = new ZAPOSLENI()
 					{
 						JMBG_ZAP = SelectedRadnik.JMBG_ZAP,
 						IME_ZAP = SelectedRadnik.ZAPOSLENI.IME_ZAP,
-						PREZ_ZAP = SelectedRadnik.ZAPOSLENI.PREZ_ZAP
+						PREZ_ZAP = SelectedRadnik.ZAPOSLENI.PREZ_ZAP,
+						
 					}
 				},
 				MyWindow = win,
@@ -170,7 +174,7 @@ namespace Service.ViewModels
 		{
 			try
 			{
-				if(String.IsNullOrEmpty(SelectedRadnik.EKIPA_ID_EK))
+				if(String.IsNullOrWhiteSpace(SelectedRadnik.EKIPA_ID_EK))
 				{
 					SelectedRadnik.EKIPA_ID_EK = SelectedEkipa;
 					DBManager.Instance.UpdateRadnik(SelectedRadnik);
@@ -196,7 +200,7 @@ namespace Service.ViewModels
 		{
 			try
 			{
-				if (!String.IsNullOrEmpty(SelectedRadnik.EKIPA_ID_EK))
+				if (!String.IsNullOrWhiteSpace(SelectedRadnik.EKIPA_ID_EK))
 				{
 					SelectedRadnik.EKIPA_ID_EK = null;
 					DBManager.Instance.UpdateRadnik(SelectedRadnik);
@@ -218,11 +222,12 @@ namespace Service.ViewModels
 		{
 			get { return SelectedRadnik == null ? false : true; }
 		}
+
 		private bool Validate()
 		{
 			bool retVal = true;
 
-			if (String.IsNullOrEmpty(NewZaposleni.IME_ZAP))
+			if (String.IsNullOrWhiteSpace(NewZaposleni.IME_ZAP))
 			{
 				ValidationIme = "Ime ne sme biti prazno!";
 				retVal = false;
@@ -232,7 +237,7 @@ namespace Service.ViewModels
 				ValidationIme = String.Empty;
 			}
 
-			if (String.IsNullOrEmpty(NewZaposleni.PREZ_ZAP))
+			if (String.IsNullOrWhiteSpace(NewZaposleni.PREZ_ZAP))
 			{
 				ValidationPrez = "Prezime ne sme biti prazno!";
 				retVal = false;
@@ -242,7 +247,7 @@ namespace Service.ViewModels
 				ValidationPrez = String.Empty;
 			}
 
-			if (String.IsNullOrEmpty(NewZaposleni.JMBG_ZAP))
+			if (String.IsNullOrWhiteSpace(NewZaposleni.JMBG_ZAP))
 			{
 				retVal = false;
 				ValidationJMBG = "JMBG ne sme biti prazan!";
@@ -269,7 +274,7 @@ namespace Service.ViewModels
 		{
 			bool retVal = true;
 
-			if (String.IsNullOrEmpty(SelectedEkipa))
+			if (String.IsNullOrWhiteSpace(SelectedEkipa))
 			{
 				retVal = false;
 				ValidationEkipa = "Izabrati ekipu za ubacivanje radnika!";

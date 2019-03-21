@@ -20,9 +20,11 @@ namespace Service.ViewModels
 		private string validationPrez;
 		private string validationJMBG;
 
+		#region Properties
 		public List<NADLEZNI> Nadlezni { get => nadlezni; set { nadlezni = value; OnPropertyChanged("Nadlezni"); } }
 		public ZAPOSLENI NewZaposleni { get => newZaposleni; set { newZaposleni = value; OnPropertyChanged("NewZaposleni"); } }
 		public NADLEZNI SelectedNadlezni { get; set; }
+		#endregion
 
 		#region Commands
 		public ICommand CreateCommand { get; set; }

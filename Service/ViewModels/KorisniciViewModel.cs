@@ -19,9 +19,11 @@ namespace Service.ViewModels
 		private string validationPrez;
 		private string validationJMBG;
 
+		#region Properties
 		public List<KORISNIK> Korisnici { get => korisnici; set { korisnici = value; OnPropertyChanged("Korisnici"); } }
 		public KORISNIK NewKorisnik { get => newKorisnik; set { newKorisnik = value; OnPropertyChanged("newKorisnik"); } }
 		public KORISNIK SelectedKorisnik { get; set; }
+		#endregion
 
 		#region Commands
 		public ICommand CreateCommand { get; set; }
@@ -150,7 +152,7 @@ namespace Service.ViewModels
 		{
 			bool retVal = true;
 
-			if (String.IsNullOrEmpty(NewKorisnik.IME_KOR))
+			if (String.IsNullOrWhiteSpace(NewKorisnik.IME_KOR))
 			{
 				ValidationIme = "Ime ne sme biti prazno!";
 				retVal = false;
@@ -160,7 +162,7 @@ namespace Service.ViewModels
 				ValidationIme = String.Empty;
 			}
 
-			if (String.IsNullOrEmpty(NewKorisnik.PREZ_KOR))
+			if (String.IsNullOrWhiteSpace(NewKorisnik.PREZ_KOR))
 			{
 				ValidationPrez = "Prezime ne sme biti prazno!";
 				retVal = false;
@@ -170,7 +172,7 @@ namespace Service.ViewModels
 				ValidationPrez = String.Empty;
 			}
 
-			if (String.IsNullOrEmpty(NewKorisnik.JMBG_KOR))
+			if (String.IsNullOrWhiteSpace(NewKorisnik.JMBG_KOR))
 			{
 				retVal = false;
 				ValidationJMBG = "JMBG ne sme biti prazan!";

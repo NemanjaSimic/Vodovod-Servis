@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VodovodModelStoreContainer" CdmEntityContainer="VodovodEntities">
+    <EntitySetMapping Name="DEO_OPREME">
+      <EntityTypeMapping TypeName="VodovodModel.DEO_OPREME">
+        <MappingFragment StoreEntitySet="DEO_OPREME">
+          <ScalarProperty Name="TIP_OPREME" ColumnName="TIP_OPREME" />
+          <ScalarProperty Name="VODOVODNA_MREZA_ID_MREZ" ColumnName="VODOVODNA_MREZA_ID_MREZ" />
+          <ScalarProperty Name="ID_TIP" ColumnName="ID_TIP" />
+          <ScalarProperty Name="DUBINA" ColumnName="DUBINA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EKIPAs">
+      <EntityTypeMapping TypeName="VodovodModel.EKIPA">
+        <MappingFragment StoreEntitySet="EKIPA">
+          <ScalarProperty Name="ID_EK" ColumnName="ID_EK" />
+          <ScalarProperty Name="BR_RAD" ColumnName="BR_RAD" />
+          <ScalarProperty Name="RADNI_NALOG_ID_RADNAL" ColumnName="RADNI_NALOG_ID_RADNAL" />
+          <ScalarProperty Name="RADNI_NALOG_PRIMA_JMBG_ZAP" ColumnName="RADNI_NALOG_PRIMA_JMBG_ZAP" />
+          <ScalarProperty Name="RADNI_NALOG_PRIMA_JMBG_KOR" ColumnName="RADNI_NALOG_PRIMA_JMBG_KOR" />
+          <ScalarProperty Name="RADNI_NALOG_PRIMA_ID_KVAR" ColumnName="RADNI_NALOG_PRIMA_ID_KVAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KORISNIKs">
+      <EntityTypeMapping TypeName="VodovodModel.KORISNIK">
+        <MappingFragment StoreEntitySet="KORISNIK">
+          <ScalarProperty Name="IME_KOR" ColumnName="IME_KOR" />
+          <ScalarProperty Name="PREZ_KOR" ColumnName="PREZ_KOR" />
+          <ScalarProperty Name="JMBG_KOR" ColumnName="JMBG_KOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KVARs">
+      <EntityTypeMapping TypeName="VodovodModel.KVAR">
+        <MappingFragment StoreEntitySet="KVAR">
+          <ScalarProperty Name="ID_KVAR" ColumnName="ID_KVAR" />
+          <ScalarProperty Name="TIP_KVAR" ColumnName="TIP_KVAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOKACIJAs">
+      <EntityTypeMapping TypeName="VodovodModel.LOKACIJA">
+        <MappingFragment StoreEntitySet="LOKACIJA">
+          <ScalarProperty Name="SIF_LOK" ColumnName="SIF_LOK" />
+          <ScalarProperty Name="ULICA" ColumnName="ULICA" />
+          <ScalarProperty Name="BROJ" ColumnName="BROJ" />
+          <ScalarProperty Name="GRAD" ColumnName="GRAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAGACINs">
+      <EntityTypeMapping TypeName="VodovodModel.MAGACIN">
+        <MappingFragment StoreEntitySet="MAGACIN">
+          <ScalarProperty Name="ID_MAG" ColumnName="ID_MAG" />
+          <ScalarProperty Name="KAPACITET" ColumnName="KAPACITET" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NADLEZNIs">
+      <EntityTypeMapping TypeName="VodovodModel.NADLEZNI">
+        <MappingFragment StoreEntitySet="NADLEZNI">
+          <ScalarProperty Name="JMBG_ZAP" ColumnName="JMBG_ZAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NALAZI_SE_NA">
+      <EntityTypeMapping TypeName="VodovodModel.NALAZI_SE_NA">
+        <MappingFragment StoreEntitySet="NALAZI_SE_NA">
+          <ScalarProperty Name="ID_DEO_LOK" ColumnName="ID_DEO_LOK" />
+          <ScalarProperty Name="DUBINA" ColumnName="DUBINA" />
+          <ScalarProperty Name="LOKACIJA_SIF_LOK" ColumnName="LOKACIJA_SIF_LOK" />
+          <ScalarProperty Name="DEO_OPREME_ID_TIP" ColumnName="DEO_OPREME_ID_TIP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NALAZI_U">
+      <EntityTypeMapping TypeName="VodovodModel.NALAZI_U">
+        <MappingFragment StoreEntitySet="NALAZI_U">
+          <ScalarProperty Name="MAGACIN_ID_MAG" ColumnName="MAGACIN_ID_MAG" />
+          <ScalarProperty Name="DEO_OPREME_ID_TIP" ColumnName="DEO_OPREME_ID_TIP" />
+          <ScalarProperty Name="ID_DEO" ColumnName="ID_DEO" />
+          <ScalarProperty Name="EKIPA_ID_EK" ColumnName="EKIPA_ID_EK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRIJAVLJUJEs">
+      <EntityTypeMapping TypeName="VodovodModel.PRIJAVLJUJE">
+        <MappingFragment StoreEntitySet="PRIJAVLJUJE">
+          <ScalarProperty Name="KORISNIK_JMBG_KOR" ColumnName="KORISNIK_JMBG_KOR" />
+          <ScalarProperty Name="KVAR_ID_KVAR" ColumnName="KVAR_ID_KVAR" />
+          <ScalarProperty Name="NALAZI_SE_NA_ID_DEO_LOK" ColumnName="NALAZI_SE_NA_ID_DEO_LOK" />
+          <ScalarProperty Name="NALAZI_SE_NA_SIF_LOK" ColumnName="NALAZI_SE_NA_SIF_LOK" />
+          <ScalarProperty Name="NALAZI_SE_NA_ID_TIP" ColumnName="NALAZI_SE_NA_ID_TIP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRIMAs">
+      <EntityTypeMapping TypeName="VodovodModel.PRIMA">
+        <MappingFragment StoreEntitySet="PRIMA">
+          <ScalarProperty Name="NADLEZNI_JMBG_ZAP" ColumnName="NADLEZNI_JMBG_ZAP" />
+          <ScalarProperty Name="PRIJAVLJUJE_KORISNIK_JMBG_KOR" ColumnName="PRIJAVLJUJE_KORISNIK_JMBG_KOR" />
+          <ScalarProperty Name="PRIJAVLJUJE_KVAR_ID_KVAR" ColumnName="PRIJAVLJUJE_KVAR_ID_KVAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RACUNs">
+      <EntityTypeMapping TypeName="VodovodModel.RACUN">
+        <MappingFragment StoreEntitySet="RACUN">
+          <ScalarProperty Name="ID_RAC" ColumnName="ID_RAC" />
+          <ScalarProperty Name="CENA" ColumnName="CENA" />
+          <ScalarProperty Name="PRIMA_JMBG_ZAP" ColumnName="PRIMA_JMBG_ZAP" />
+          <ScalarProperty Name="PRIMA_JMBG_KOR" ColumnName="PRIMA_JMBG_KOR" />
+          <ScalarProperty Name="PRIMA_ID_KVAR" ColumnName="PRIMA_ID_KVAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RADNI_NALOG">
+      <EntityTypeMapping TypeName="VodovodModel.RADNI_NALOG">
+        <MappingFragment StoreEntitySet="RADNI_NALOG">
+          <ScalarProperty Name="ID_RADNAL" ColumnName="ID_RADNAL" />
+          <ScalarProperty Name="PRIMA_JMBG_ZAP" ColumnName="PRIMA_JMBG_ZAP" />
+          <ScalarProperty Name="PRIMA_JMBG_KOR" ColumnName="PRIMA_JMBG_KOR" />
+          <ScalarProperty Name="PRIMA_ID_KVAR" ColumnName="PRIMA_ID_KVAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RADNIIKs">
+      <EntityTypeMapping TypeName="VodovodModel.RADNIIK">
+        <MappingFragment StoreEntitySet="RADNIIK">
+          <ScalarProperty Name="JMBG_ZAP" ColumnName="JMBG_ZAP" />
+          <ScalarProperty Name="EKIPA_ID_EK" ColumnName="EKIPA_ID_EK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VODOVODNA_MREZA">
+      <EntityTypeMapping TypeName="VodovodModel.VODOVODNA_MREZA">
+        <MappingFragment StoreEntitySet="VODOVODNA_MREZA">
+          <ScalarProperty Name="ID_MREZ" ColumnName="ID_MREZ" />
+          <ScalarProperty Name="GRAD" ColumnName="GRAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZAPOSLENIs">
+      <EntityTypeMapping TypeName="VodovodModel.ZAPOSLENI">
+        <MappingFragment StoreEntitySet="ZAPOSLENI">
+          <ScalarProperty Name="JMBG_ZAP" ColumnName="JMBG_ZAP" />
+          <ScalarProperty Name="IME_ZAP" ColumnName="IME_ZAP" />
+          <ScalarProperty Name="PREZ_ZAP" ColumnName="PREZ_ZAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -55,7 +55,7 @@ namespace Service.ViewModels
 		private bool Validate()
 		{
 			bool retVal = true;
-			if (String.IsNullOrEmpty(Radnik.ZAPOSLENI.IME_ZAP))
+			if (String.IsNullOrWhiteSpace(Radnik.ZAPOSLENI.IME_ZAP))
 			{
 				ValidationIme = "Ime ne sme biti prazno!";
 				retVal = false;
@@ -66,7 +66,7 @@ namespace Service.ViewModels
 			}
 
 
-			if (String.IsNullOrEmpty(Radnik.ZAPOSLENI.PREZ_ZAP))
+			if (String.IsNullOrWhiteSpace(Radnik.ZAPOSLENI.PREZ_ZAP))
 			{
 				ValidationPrez = "Prezime ne sme biti prazno!";
 				retVal = false;

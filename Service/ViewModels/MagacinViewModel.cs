@@ -19,10 +19,12 @@ namespace Service.ViewModels
 		private string validationID;
 		private string stringKap;
 
+		#region Properties
 		public List<MAGACIN> Magacins { get => magacins; set { magacins = value; OnPropertyChanged("Magacins"); } }
 		public MAGACIN NewMagacin { get => newMagacin; set { newMagacin = value; OnPropertyChanged("NewMagacin"); } }
 		public MAGACIN SelectedMagacin { get; set; }
 		public string StringKap { get => stringKap; set { stringKap = value; OnPropertyChanged("StringKap"); } }
+		#endregion
 
 		#region Commands
 		public ICommand CreateCommand { get; set; }
@@ -136,7 +138,7 @@ namespace Service.ViewModels
 		{
 			bool retVal = true;
 
-			if (String.IsNullOrEmpty(NewMagacin.ID_MAG))
+			if (String.IsNullOrWhiteSpace(NewMagacin.ID_MAG))
 			{
 				ValidationID = "ID magacina ne sme biti prazan!";
 				retVal = false;
@@ -146,7 +148,7 @@ namespace Service.ViewModels
 				ValidationID = String.Empty;
 			}
 
-			if (String.IsNullOrEmpty(StringKap))
+			if (String.IsNullOrWhiteSpace(StringKap))
 			{
 				retVal = false;
 				ValidationKap = "Kapacitet ne sme biti prazan!";

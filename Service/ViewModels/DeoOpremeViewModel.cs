@@ -15,13 +15,14 @@ namespace Service.ViewModels
     {
 		private List<DEO_OPREME> deo_Opremes;
 		private DEO_OPREME newDeo;
-		private string validationTip;
-		private string validationID;
 		private string idTip;
 		private string validationMagacin;
 		private string idDeo;
+		private string validationTip;
+		private string validationID;
 		private string validationDeo;
 
+		#region Properties
 		public List<DEO_OPREME> Deo_Opremes { get => deo_Opremes; set { deo_Opremes = value; OnPropertyChanged("Deo_Opremes"); } }
 		public DEO_OPREME NewDeo { get => newDeo; set { newDeo = value; OnPropertyChanged("NewDeo"); } }
 		public DEO_OPREME SelectedDeo { get; set; }
@@ -29,6 +30,7 @@ namespace Service.ViewModels
 		public string IdTip { get => idTip; set { idTip = value; OnPropertyChanged("IdTip"); } }
 		public string IdDeo { get => idDeo; set { idDeo = value; OnPropertyChanged("IdDeo"); } }
 		public List<string> Magacins { get; set; }
+		#endregion
 
 		#region Commands
 		public ICommand CreateCommand { get; set; }
@@ -79,6 +81,7 @@ namespace Service.ViewModels
 		public void UpdateMagacins()
 		{
 			List<MAGACIN> tempList = DBManager.Instance.GetMAGACINs();
+			Magacins = new List<string>();
 			foreach (var item in tempList)
 			{
 				Magacins.Add(item.ID_MAG);
@@ -165,7 +168,7 @@ namespace Service.ViewModels
 					retVal = false;
 				}
 
-				if (String.IsNullOrEmpty(IdDeo))
+				if (String.IsNullOrWhiteSpace(IdDeo))
 				{
 					ValidationDeo = "ID dela ne sme biti prazan!";
 					retVal = false;
@@ -180,7 +183,7 @@ namespace Service.ViewModels
 					ValidationDeo = String.Empty;
 				}
 
-				if (String.IsNullOrEmpty(SelectedMagacin))
+				if (String.IsNullOrWhiteSpace(SelectedMagacin))
 				{
 					ValidationMagacin = "Magacin mora biti izabran!";
 					retVal = false;
@@ -192,7 +195,6 @@ namespace Service.ViewModels
 				return retVal;
 			}
 		}
-
 		public void Put()
 		{
 			try
@@ -217,7 +219,7 @@ namespace Service.ViewModels
 		{
 			bool retVal = true;
 
-			if (String.IsNullOrEmpty(NewDeo.TIP_OPREME))
+			if (String.IsNullOrWhiteSpace(NewDeo.TIP_OPREME))
 			{
 				ValidationTip = "Naziv opreme ne sme biti prazan!";
 				retVal = false;
@@ -227,7 +229,7 @@ namespace Service.ViewModels
 				ValidationTip = String.Empty;
 			}
 
-			if (String.IsNullOrEmpty(IdTip))
+			if (String.IsNullOrWhiteSpace(IdTip))
 			{
 				retVal = false;
 				ValidationID = "ID TIP ne sme biti prazan!";

@@ -54,7 +54,7 @@ namespace Service.ViewModels
 		private bool Validate()
 		{
 			bool retVal = true;
-			if (String.IsNullOrEmpty(Korisnik.IME_KOR))
+			if (String.IsNullOrWhiteSpace(Korisnik.IME_KOR))
 			{
 				ValidationIme = "Ime ne sme biti prazno!";
 				retVal = false;
@@ -65,7 +65,7 @@ namespace Service.ViewModels
 			}
 
 
-			if (String.IsNullOrEmpty(Korisnik.PREZ_KOR))
+			if (String.IsNullOrWhiteSpace(Korisnik.PREZ_KOR))
 			{
 				ValidationPrez = "Prezime ne sme biti prazno!";
 				retVal = false;

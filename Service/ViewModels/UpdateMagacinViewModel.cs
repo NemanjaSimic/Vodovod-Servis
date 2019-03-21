@@ -53,7 +53,7 @@ namespace Service.ViewModels
 		private bool Validate()
 		{
 			bool retVal = true;
-			if (String.IsNullOrEmpty(StringKap))
+			if (String.IsNullOrWhiteSpace(StringKap))
 			{
 				retVal = false;
 				ValidationKap = "Kapacitet ne sme biti prazan!";

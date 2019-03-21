@@ -80,7 +80,6 @@
     <Compile Include="Commands\DeleteRadnikCommand.cs" />
     <Compile Include="Commands\DeleteStanjeCommand.cs" />
     <Compile Include="Commands\PutDeoCommand.cs" />
-    <Compile Include="Commands\PutDeoMagacinCommand.cs" />
     <Compile Include="Commands\PutInEkipaCommand.cs" />
     <Compile Include="Commands\ReserveDeoCommand.cs" />
     <Compile Include="Commands\SaveChangesDeoCommand.cs" />
@@ -95,7 +94,6 @@
     <Compile Include="Commands\UpdateMagacinCommand.cs" />
     <Compile Include="Commands\UpdateNadlzeniCommand.cs" />
     <Compile Include="Commands\UpdateRadnikCommand.cs" />
-    <Compile Include="Enumerations\TipOpreme.cs" />
     <Compile Include="Models\Datebase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,22 +162,15 @@
     <Compile Include="ViewModels\DeoOpremeViewModel.cs" />
     <Compile Include="ViewModels\EkipeViewModel.cs" />
     <Compile Include="ViewModels\KorisniciViewModel.cs" />
-    <Compile Include="ViewModels\KvarViewModel.cs" />
-    <Compile Include="ViewModels\LokacijaViewModel.cs" />
     <Compile Include="ViewModels\MagacinViewModel.cs" />
-    <Compile Include="ViewModels\MrezeViewModel.cs" />
     <Compile Include="ViewModels\NadlezniViewModel.cs" />
-    <Compile Include="ViewModels\PutDeoViewModel.cs" />
-    <Compile Include="ViewModels\RacuniViewModel.cs" />
     <Compile Include="ViewModels\RadniciViewModel.cs" />
-    <Compile Include="ViewModels\RadniNalogViewModel.cs" />
     <Compile Include="ViewModels\StanjeViewModel.cs" />
     <Compile Include="ViewModels\UpdateDeoViewModel.cs" />
     <Compile Include="ViewModels\UpdateKorisnikViewModel.cs" />
     <Compile Include="ViewModels\UpdateMagacinViewModel.cs" />
     <Compile Include="ViewModels\UpdateNadlezniViewModel.cs" />
     <Compile Include="ViewModels\UpdateRadnikViewModel.cs" />
-    <Compile Include="ViewModels\ZaposleniViewModel.cs" />
     <Compile Include="Views\DeoOpremeView.xaml.cs">
       <DependentUpon>DeoOpremeView.xaml</DependentUpon>
     </Compile>
@@ -189,29 +180,11 @@
     <Compile Include="Views\KorisniciView.xaml.cs">
       <DependentUpon>KorisniciView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\KvarView.xaml.cs">
-      <DependentUpon>KvarView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LokacijaView.xaml.cs">
-      <DependentUpon>LokacijaView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\MagacinView.xaml.cs">
       <DependentUpon>MagacinView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MrezeView.xaml.cs">
-      <DependentUpon>MrezeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PutDeoView.xaml.cs">
-      <DependentUpon>PutDeoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RacuniView.xaml.cs">
-      <DependentUpon>RacuniView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\RadniciView.xaml.cs">
       <DependentUpon>RadniciView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RadniNalogView.xaml.cs">
-      <DependentUpon>RadniNalogView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NadlezniView.xaml.cs">
       <DependentUpon>NadlezniView.xaml</DependentUpon>
@@ -258,35 +231,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\KvarView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LokacijaView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\MagacinView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MrezeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PutDeoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RacuniView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\RadniciView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RadniNalogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

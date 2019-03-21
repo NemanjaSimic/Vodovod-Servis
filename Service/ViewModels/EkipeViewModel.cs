@@ -16,10 +16,11 @@ namespace Service.ViewModels
 		private EKIPA newEkipa;
 		private string validationID;
 
+		#region Properties
 		public List<EKIPA> Ekipas { get => ekipas; set { ekipas = value; OnPropertyChanged("Ekipas"); } }
 		public EKIPA NewEkipa { get => newEkipa; set { newEkipa = value; OnPropertyChanged("NewEkipa"); } }
 		public EKIPA SelectedEkipa { get; set; }
-	
+		#endregion
 
 		#region Commands
 		public ICommand CreateCommand { get; set; }
@@ -37,8 +38,7 @@ namespace Service.ViewModels
 			NewEkipa = new EKIPA();
 
 			CreateCommand = new CreateEkipaCommand(this);
-			DeleteCommand = new DeleteEkipaCommand(this);
-			//UpdateCommand = new UpdateEkipaCommand(this);
+			DeleteCommand = new DeleteEkipaCommand(this);			
 
 			ValidationID = "ID ekipe ne sme biti prazan!";
 		}
@@ -101,37 +101,13 @@ namespace Service.ViewModels
 		{
 			get { return SelectedEkipa == null ? false : true; }
 		}
-
-		public void Update()
-		{
-			//Window win = new UpdateMagacin();
-
-			//win.DataContext = new UpdateMagacinViewModel()
-			//{
-			//	Magacin = new MAGACIN()
-			//	{
-			//		ID_MAG = SelectedMagacin.ID_MAG,
-			//		KAPACITET = SelectedMagacin.KAPACITET
-			//	},
-			//	MyWindow = win,
-			//	MVM = this,
-			//	StringKap = SelectedMagacin.KAPACITET.ToString()
-			//};
-
-			//win.ShowDialog();
-		}
-
-		public bool CanUpdate
-		{
-			get { return SelectedEkipa == null ? false : true; }
-		}
 		#endregion
 
 		private bool Validate()
 		{
 			bool retVal = true;
 
-			if (String.IsNullOrEmpty(NewEkipa.ID_EK))
+			if (String.IsNullOrWhiteSpace(NewEkipa.ID_EK))
 			{
 				ValidationID = "ID ekipe ne sme biti prazan!";
 				retVal = false;

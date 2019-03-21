@@ -16,6 +16,7 @@ namespace Service.ViewModels
 		private List<string> ekipe;
 		private string validationEkipa;
 
+		#region Properties
 		public List<NALAZI_U> Stanje { get => stanje; set { stanje = value; OnPropertyChanged("Stanje"); } }
 		public List<string> Ekipe { get => ekipe; set { ekipe = value; OnPropertyChanged("Ekipe"); } }
 		public NALAZI_U SelectedStanje { get; set; }
@@ -24,7 +25,7 @@ namespace Service.ViewModels
 		public ICommand ReserveCommand { get; set; }
 		public ICommand DeleteCommand { get; set; }
 		public ICommand CancelReservationCommand { get; set; }
-
+		#endregion
 
 		public StanjeViewModel()
 		{
@@ -64,7 +65,7 @@ namespace Service.ViewModels
 		{
 			try
 			{
-				if (!String.IsNullOrEmpty(SelectedStanje.EKIPA_ID_EK))
+				if (!String.IsNullOrWhiteSpace(SelectedStanje.EKIPA_ID_EK))
 				{
 					MessageBox.Show("Deo je rezervisan za ekipu!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
@@ -91,7 +92,7 @@ namespace Service.ViewModels
 		{
 			try
 			{
-				if (!String.IsNullOrEmpty(SelectedStanje.EKIPA_ID_EK))
+				if (!String.IsNullOrWhiteSpace(SelectedStanje.EKIPA_ID_EK))
 				{
 					MessageBox.Show("Deo je vec rezervisan!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
 					UpdateStanje();
@@ -111,7 +112,6 @@ namespace Service.ViewModels
 			}
 		}
 
-
 		public bool CanCancelReservation
 		{
 			get { return SelectedStanje == null ? false : true; }
@@ -121,7 +121,7 @@ namespace Service.ViewModels
 		{
 			try
 			{
-				if (String.IsNullOrEmpty(SelectedStanje.EKIPA_ID_EK))
+				if (String.IsNullOrWhiteSpace(SelectedStanje.EKIPA_ID_EK))
 				{
 					MessageBox.Show("Deo nema rezervaciju!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
 					UpdateStanje();
@@ -144,7 +144,7 @@ namespace Service.ViewModels
 		public bool ValidateReserve()
 		{
 			bool retVal = true;
-			if (String.IsNullOrEmpty(SelectedEkipa))
+			if (String.IsNullOrWhiteSpace(SelectedEkipa))
 			{
 				ValidationEkipa = "Ekipa mora biti izabrana!";
 				retVal = false;

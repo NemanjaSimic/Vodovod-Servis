@@ -51,7 +51,7 @@ namespace Service.ViewModels
 		private bool Validate()
 		{
 			bool retVal = true;
-			if (String.IsNullOrEmpty(Deo.TIP_OPREME))
+			if (String.IsNullOrWhiteSpace(Deo.TIP_OPREME))
 			{
 				ValidationTip = "Naziv tipa ne sme biti prazan!";
 				retVal = false;

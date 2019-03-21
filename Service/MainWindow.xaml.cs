@@ -37,10 +37,7 @@ namespace Service
 			DataContext = new NadlezniViewModel();
 		}
 
-		private void MrezeButton_Click(object sender, RoutedEventArgs e)
-		{
-			DataContext = new MrezeViewModel();
-		}
+		
 
 		private void KorisniciButton_Click(object sender, RoutedEventArgs e)
 		{
@@ -52,10 +49,6 @@ namespace Service
 			DataContext = new EkipeViewModel();
 		}
 
-		private void RadniNalogButton_Click(object sender, RoutedEventArgs e)
-		{
-			DataContext = new RadniNalogViewModel();
-		}
 
 		private void MagacinButton_Click(object sender, RoutedEventArgs e)
 		{
@@ -70,16 +63,6 @@ namespace Service
 		private void StanjeButton_Click(object sender, RoutedEventArgs e)
 		{
 			DataContext = new StanjeViewModel();
-		}
-
-		private void KvaroviButton_Click(object sender, RoutedEventArgs e)
-		{
-			DataContext = new KvarViewModel();
-		}
-
-		private void RacuniButton_Click(object sender, RoutedEventArgs e)
-		{
-			DataContext = new RadniNalogViewModel();
 		}
 
 		private void RadniciButton_Click(object sender, RoutedEventArgs e)

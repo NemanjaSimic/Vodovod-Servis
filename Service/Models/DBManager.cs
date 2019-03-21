@@ -187,6 +187,8 @@ namespace Service.Models
 			{
 				RADNIIK tempRad = dbManager.RADNIIKs.ToList().Find(n => n.JMBG_ZAP.Equals(radnik.JMBG_ZAP));
 				tempRad.EKIPA_ID_EK = radnik.EKIPA_ID_EK;
+				tempRad.ZAPOSLENI.IME_ZAP = radnik.ZAPOSLENI.IME_ZAP;
+				tempRad.ZAPOSLENI.PREZ_ZAP = radnik.ZAPOSLENI.PREZ_ZAP;
 				dbManager.SaveChanges();
 			}
 		}

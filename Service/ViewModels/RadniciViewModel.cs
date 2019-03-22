@@ -17,12 +17,14 @@ namespace Service.ViewModels
 		private ZAPOSLENI newZaposleni;
 		private List<string> ekipe;
 		private string prosecnaDubina;
+		private string brojMagacina;
 		private string validationEkipa;
 		private string validationIme;
 		private string validationPrez;
 		private string validationJMBG;
 
 		#region Properties
+		public string BrojMagacina { get => brojMagacina; set { brojMagacina = value; OnPropertyChanged("BrojMagacina"); } }
 		public string ProsecnaDubina { get => prosecnaDubina; set { prosecnaDubina = value; OnPropertyChanged("ProsecnaDubina"); } }
 		public List<RADNIIK> Radnici { get => radnici; set { radnici = value; OnPropertyChanged("Radnici"); } }
 		public ZAPOSLENI NewZaposleni { get => newZaposleni; set { newZaposleni = value; OnPropertyChanged("NewZaposleni"); } }
@@ -38,6 +40,7 @@ namespace Service.ViewModels
 		public ICommand PutInCommand { get; set; }
 		public ICommand TakeOutCommand { get; set; }
 		public ICommand ProsecnaDubinaCommand { get; set; }
+		public ICommand BrojMagacinaCommand { get; set; }
 		#endregion
 
 		#region Validations
@@ -59,6 +62,7 @@ namespace Service.ViewModels
 			PutInCommand = new PutInEkipaCommand(this);
 			TakeOutCommand = new TakeOutFromEkipaCommand(this);
 			ProsecnaDubinaCommand = new ProsecnaDubinaCommand(this);
+			BrojMagacinaCommand = new BrojMagacinaCommand(this);
 
 			ValidationIme = String.Empty;
 			ValidationPrez = String.Empty;
@@ -73,6 +77,7 @@ namespace Service.ViewModels
 				Radnici = DBManager.Instance.GetRADNICIs();
 				GetCredentialsForNadleznis();
 				ProsecnaDubina = String.Empty;
+				BrojMagacina = String.Empty;
 			}
 			catch (Exception)
 			{
@@ -241,6 +246,23 @@ namespace Service.ViewModels
 		}
 
 		public bool CanRacunajProsecnuDubinu
+		{
+			get { return SelectedRadnik == null ? false : true; }
+		}
+
+		public void RacunajBrojMagacina()
+		{
+			try
+			{
+				BrojMagacina = DBManager.Instance.BrojMagacina(SelectedRadnik.JMBG_ZAP).ToString();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Prekid konekcije sa bazom!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
+
+		public bool CanRacunajBrojMagacina
 		{
 			get { return SelectedRadnik == null ? false : true; }
 		}

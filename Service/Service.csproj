@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="Commands\BrojMagacinaCommand.cs" />
     <Compile Include="Commands\CancelReservationCommand.cs" />
     <Compile Include="Commands\CreateDeoCommand.cs" />
     <Compile Include="Commands\CreateEkipaCommand.cs" />
@@ -95,69 +96,69 @@
     <Compile Include="Commands\UpdateMagacinCommand.cs" />
     <Compile Include="Commands\UpdateNadlzeniCommand.cs" />
     <Compile Include="Commands\UpdateRadnikCommand.cs" />
-    <Compile Include="Models\Database.Context.cs">
+    <Compile Include="Models\Datebase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Database.Context.tt</DependentUpon>
+      <DependentUpon>Datebase.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Database.cs">
+    <Compile Include="Models\Datebase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Database.Designer.cs">
+    <Compile Include="Models\Datebase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Database.edmx</DependentUpon>
+      <DependentUpon>Datebase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DBManager.cs" />
     <Compile Include="Models\DEO_OPREME.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EKIPA.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KORISNIK.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KVAR.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOKACIJA.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MAGACIN.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NADLEZNI.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NALAZI_SE_NA.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NALAZI_U.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PRIJAVLJUJE.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PRIMA.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RACUN.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RADNIIK.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RADNI_NALOG.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VODOVODNA_MREZA.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ZAPOSLENI.cs">
-      <DependentUpon>Database.tt</DependentUpon>
+      <DependentUpon>Datebase.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\DeoOpremeViewModel.cs" />
     <Compile Include="ViewModels\EkipeViewModel.cs" />
@@ -286,12 +287,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Database.edmx">
+    <EntityDeploy Include="Models\Datebase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Database.Designer.cs</LastGenOutput>
+      <LastGenOutput>Datebase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Database.edmx.diagram">
-      <DependentUpon>Database.edmx</DependentUpon>
+    <None Include="Models\Datebase.edmx.diagram">
+      <DependentUpon>Datebase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -309,15 +310,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Database.Context.tt">
+    <Content Include="Models\Datebase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Database.edmx</DependentUpon>
-      <LastGenOutput>Database.Context.cs</LastGenOutput>
+      <DependentUpon>Datebase.edmx</DependentUpon>
+      <LastGenOutput>Datebase.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Database.tt">
+    <Content Include="Models\Datebase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Database.edmx</DependentUpon>
-      <LastGenOutput>Database.cs</LastGenOutput>
+      <DependentUpon>Datebase.edmx</DependentUpon>
+      <LastGenOutput>Datebase.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

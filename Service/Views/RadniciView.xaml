@@ -9,9 +9,9 @@
 	<Grid Background="Blue" Margin="0,0,0,0.4">
 		<Grid.RowDefinitions>
 			<RowDefinition/>
-			<RowDefinition Height="auto" MinHeight="493.6"/>
+			<RowDefinition Height="auto" MinHeight="489.6"/>
 		</Grid.RowDefinitions>
-		<Grid Grid.Row="0" >
+		<Grid Grid.Row="0" Margin="0,0,0,489.4" Grid.RowSpan="2" >
 			<Button Command="{Binding CreateCommand}" Content="Napravi novog radnika" HorizontalAlignment="Left" Height="36" Margin="9,211,0,0" VerticalAlignment="Top" Width="356" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
 			<TextBox HorizontalAlignment="Left" Height="43" Margin="134,0,0,0" TextWrapping="Wrap" Text="{Binding NewZaposleni.IME_ZAP, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
 			<TextBox HorizontalAlignment="Left" Height="43" Margin="134,68,0,0" TextWrapping="Wrap" Text="{Binding NewZaposleni.PREZ_ZAP, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
@@ -27,12 +27,14 @@
 			<Label Content="ID EKIPE ZA REZERVACIJU DELA:" HorizontalAlignment="Left" Height="38" Margin="444,-2,0,0" VerticalAlignment="Top" Width="297" FontWeight="Bold" FontSize="18"/>
 			<TextBlock HorizontalAlignment="Left" Height="20" Margin="481,87,0,0" TextWrapping="Wrap" Text="{Binding ValidationEkipa, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red" />
 			<Button Command="{Binding TakeOutCommand}" Content="Izbaci radnika iz ekipe" HorizontalAlignment="Left" Height="36" Margin="438,153,0,0" VerticalAlignment="Top" Width="303" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
-			<Button Command="{Binding ProsecnaDubinaCommand}" Content="Prosecna dubina" HorizontalAlignment="Left" Height="36" Margin="400,211,0,0" VerticalAlignment="Top" Width="233" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
-			<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="36" Margin="658,211,0,0" TextWrapping="Wrap" Text="{Binding ProsecnaDubina, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="83" FontSize="20"/>
+			<Button Command="{Binding ProsecnaDubinaCommand}" Content="Prosecna dubina" HorizontalAlignment="Left" Height="22" Margin="420,210,0,0" VerticalAlignment="Top" Width="233" FontFamily="Sitka Small" FontSize="16" FontWeight="Bold" Background="#FF769CB0"/>
+			<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="22" Margin="678,210,0,0" TextWrapping="Wrap" Text="{Binding ProsecnaDubina, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="63" FontSize="16" RenderTransformOrigin="1.529,0.873"/>
+			<Button Command="{Binding BrojMagacinaCommand}" Content="Broj magacina" HorizontalAlignment="Left" Height="22" Margin="420,239,0,0" VerticalAlignment="Top" Width="233" FontFamily="Sitka Small" FontSize="16" FontWeight="Bold" Background="#FF769CB0"/>
+			<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="22" Margin="678,238,0,0" TextWrapping="Wrap" Text="{Binding BrojMagacina, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="63" FontSize="16" RenderTransformOrigin="1.529,0.873"/>
 
 		</Grid>
-		<Grid Grid.Row="1" Margin="0,1.2,0,0.4">
-			<DataGrid ItemsSource="{Binding Radnici, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedRadnik, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="397" Margin="10,9,0,0" VerticalAlignment="Top" Width="780">
+		<Grid Grid.Row="1">
+			<DataGrid ItemsSource="{Binding Radnici, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedRadnik, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="397" Margin="10,23,0,0" VerticalAlignment="Top" Width="780">
 				<DataGrid.Columns>
 					<DataGridTextColumn Header="Ime" Binding="{Binding ZAPOSLENI.IME_ZAP, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
 					<DataGridTextColumn Header="Prezime"  Binding="{Binding ZAPOSLENI.PREZ_ZAP, UpdateSourceTrigger=PropertyChanged}" Width="*"/>

@@ -122,6 +122,6 @@
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\KORISNIK_PK.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Triggers\DodavanjeRadnikaTriger.sql" />
     <Build Include="Schema objects\Schemas\dbo\Programmability\Stored Procedures\ProsecnaDubina.sql" />
-    <Build Include="Schema objects\Schemas\dbo\Programmability\Stored Procedures\BrojRezervisanihDelova.sql" />
+    <Build Include="Schema objects\Schemas\dbo\Programmability\Functions\BrojMagacina.sql" />
   </ItemGroup>
 </Project>

@@ -28,23 +28,24 @@ namespace Service.Models
 		public decimal ProsecnaDubina(string idRadnika)
 		{
 			decimal result = 0;
-
 			using (var dbManager = new VodovodEntities())
 			{
-				try
-				{
-					ObjectParameter retVal = new ObjectParameter("avg", typeof(decimal));
-					//dbManager.Database.SqlQuery<float>($"SELECT [dbo].[ProsecnaDubina]({2703996772010},{result})").FirstOrDefault();
+					ObjectParameter retVal = new ObjectParameter("avg", typeof(decimal));			
 					dbManager.ProsecnaDubina(idRadnika, retVal);
 					result = Convert.ToDecimal(retVal.Value);
-				}
-				catch (Exception ex)
-				{
-
-					throw ex;
-				}
 			}
 			return result;
+		}
+
+		public int BrojMagacina(string idRadnika)
+		{
+			int result = 0;		
+			using (var dbManager = new VodovodEntities())
+			{
+				result = dbManager.Database.SqlQuery<int>($"SELECT [dbo].[BrojMagacina]({idRadnika})").FirstOrDefault();
+			}
+			return result;
+
 		}
 
 		#region Zapolseni

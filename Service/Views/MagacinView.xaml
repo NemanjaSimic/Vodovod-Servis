@@ -12,7 +12,7 @@
 			<RowDefinition Height="auto" MinHeight="493.6"/>
 		</Grid.RowDefinitions>
 		<Grid Grid.Row="0" Margin="10,10,-10,389.4" Grid.RowSpan="2">
-			<Button Command="{Binding CreateCommand}" Content="Create New Magacin" HorizontalAlignment="Left" Height="36" Margin="0,211,0,0" VerticalAlignment="Top" Width="780" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<Button Command="{Binding CreateCommand}" Content="Napravi novi magacin" HorizontalAlignment="Left" Height="36" Margin="0,211,0,0" VerticalAlignment="Top" Width="780" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
 			<TextBox HorizontalAlignment="Left" Height="43" Margin="259,0,0,0" TextWrapping="Wrap" Text="{Binding NewMagacin.ID_MAG, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
 			<TextBox HorizontalAlignment="Left" Height="43" Margin="259,68,0,0" TextWrapping="Wrap" Text="{Binding StringKap, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
 			<Label Content="ID MAGACINA:" HorizontalAlignment="Left" Height="43" Margin="10,0,0,0" VerticalAlignment="Top" Width="244" FontWeight="Bold" FontSize="18"/>
@@ -27,8 +27,8 @@
 					<DataGridTextColumn Header="KAPACITET MAGACINA"  Binding="{Binding KAPACITET, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
 				</DataGrid.Columns>
 			</DataGrid>
-			<Button Command="{Binding UpdateCommand}" Content="Update" HorizontalAlignment="Left" Height="39" Margin="10,443,0,0" VerticalAlignment="Top" Width="263"/>
-			<Button Command="{Binding DeleteCommand}" Content="Delete" HorizontalAlignment="Left" Height="40" Margin="527,442,0,0" VerticalAlignment="Top" Width="263"/>
+			<Button Command="{Binding UpdateCommand}" Content="Izmeni" HorizontalAlignment="Left" Height="39" Margin="10,443,0,0" VerticalAlignment="Top" Width="263"/>
+			<Button Command="{Binding DeleteCommand}" Content="Izbrisi" HorizontalAlignment="Left" Height="40" Margin="527,442,0,0" VerticalAlignment="Top" Width="263"/>
 		</Grid>
 	</Grid>
 </UserControl>

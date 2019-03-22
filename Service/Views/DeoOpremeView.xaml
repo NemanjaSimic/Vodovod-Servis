@@ -16,7 +16,7 @@
 			<Label Content="ID DELA OPREME:" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="164" FontSize="18" FontWeight="Bold" Margin="520,93,0,0"/>
 			<TextBlock HorizontalAlignment="Left" Height="20"  TextWrapping="Wrap" Text="{Binding ValidationDeo, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red" Margin="490,182,0,0" />
 
-			<Button Command="{Binding CreateCommand}" Content="Create New Tip Opreme" HorizontalAlignment="Left" Height="36" Margin="19,210,0,0" VerticalAlignment="Top" Width="310" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<Button Command="{Binding CreateCommand}" Content="Napravi novi tip opreme" HorizontalAlignment="Left" Height="36" Margin="19,210,0,0" VerticalAlignment="Top" Width="315" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
 			<TextBox HorizontalAlignment="Left" Height="22" Margin="46,17,0,0" TextWrapping="Wrap" Text="{Binding NewDeo.TIP_OPREME, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" FontSize="14"/>
 			<TextBox HorizontalAlignment="Left" Height="22" Margin="46,93,0,0" TextWrapping="Wrap" Text="{Binding IdTip, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" FontSize="14"/>
 			<Label Content="NAZIV TIPA OPREME:" HorizontalAlignment="Left" Height="26" Margin="74,-9,0,0" VerticalAlignment="Top" Width="198" FontWeight="Bold" FontSize="14"/>
@@ -26,7 +26,7 @@
 			<Label Content="MAGACIN:" HorizontalAlignment="Center" Height="34" Margin="548,-5,150,0" VerticalAlignment="Top" Width="102" FontSize="18" FontWeight="Bold"/>
 			<ComboBox ItemsSource="{Binding Magacins}" SelectedValue="{Binding SelectedMagacin}" Margin="490,29,88,303" />
 			<TextBlock HorizontalAlignment="Left" Height="20" Margin="490,68,0,0" TextWrapping="Wrap" Text="{Binding ValidationMagacin, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
-			<Button Command="{Binding PutCommand}" Content="Create New Deo Opreme" HorizontalAlignment="Left" Height="36" Margin="436,210,0,0" VerticalAlignment="Top" Width="328" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<Button Command="{Binding PutCommand}" Content="Napravi novi deo opreme" HorizontalAlignment="Left" Height="36" Margin="436,210,0,0" VerticalAlignment="Top" Width="328" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
 			<TextBox HorizontalAlignment="Left" Height="22" Margin="46,163,0,0" TextWrapping="Wrap" Text="{Binding Dubina, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" FontSize="14"/>
 			<Label Content="DUBINA ZAKOPAVANJA:" HorizontalAlignment="Left" Height="29" Margin="70,134,0,0" VerticalAlignment="Top" Width="181" FontSize="14" FontWeight="Bold"/>
 			<TextBlock HorizontalAlignment="Left" Height="15" Margin="46,190,0,0" TextWrapping="Wrap" Text="{Binding ValidationDubina, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" Background="{x:Null}" Foreground="Red"/>
@@ -39,8 +39,8 @@
 					<DataGridTextColumn Header="DUBINA"  Binding="{Binding DUBINA, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
 				</DataGrid.Columns>
 			</DataGrid>
-			<Button Command="{Binding UpdateCommand}" Content="Update" HorizontalAlignment="Left" Height="40" Margin="10,442,0,0" VerticalAlignment="Top" Width="263"/>
-			<Button Command="{Binding DeleteCommand}" Content="Delete" HorizontalAlignment="Left" Height="40" Margin="527,442,0,0" VerticalAlignment="Top" Width="263"/>
+			<Button Command="{Binding UpdateCommand}" Content="Izmeni" HorizontalAlignment="Left" Height="40" Margin="10,442,0,0" VerticalAlignment="Top" Width="263"/>
+			<Button Command="{Binding DeleteCommand}" Content="Izbrisi" HorizontalAlignment="Left" Height="40" Margin="527,442,0,0" VerticalAlignment="Top" Width="263"/>
 		</Grid>
 	</Grid>
 </UserControl>

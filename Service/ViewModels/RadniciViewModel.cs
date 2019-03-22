@@ -15,13 +15,15 @@ namespace Service.ViewModels
 	{
 		private List<RADNIIK> radnici;
 		private ZAPOSLENI newZaposleni;
-		private string validationEkipa;
 		private List<string> ekipe;
+		private string prosecnaDubina;
+		private string validationEkipa;
 		private string validationIme;
 		private string validationPrez;
 		private string validationJMBG;
 
 		#region Properties
+		public string ProsecnaDubina { get => prosecnaDubina; set { prosecnaDubina = value; OnPropertyChanged("ProsecnaDubina"); } }
 		public List<RADNIIK> Radnici { get => radnici; set { radnici = value; OnPropertyChanged("Radnici"); } }
 		public ZAPOSLENI NewZaposleni { get => newZaposleni; set { newZaposleni = value; OnPropertyChanged("NewZaposleni"); } }
 		public RADNIIK SelectedRadnik { get; set; }
@@ -35,6 +37,7 @@ namespace Service.ViewModels
 		public ICommand UpdateCommand { get; set; }
 		public ICommand PutInCommand { get; set; }
 		public ICommand TakeOutCommand { get; set; }
+		public ICommand ProsecnaDubinaCommand { get; set; }
 		#endregion
 
 		#region Validations
@@ -55,6 +58,7 @@ namespace Service.ViewModels
 			UpdateCommand = new UpdateRadnikCommand(this);
 			PutInCommand = new PutInEkipaCommand(this);
 			TakeOutCommand = new TakeOutFromEkipaCommand(this);
+			ProsecnaDubinaCommand = new ProsecnaDubinaCommand(this);
 
 			ValidationIme = String.Empty;
 			ValidationPrez = String.Empty;
@@ -68,6 +72,7 @@ namespace Service.ViewModels
 			{
 				Radnici = DBManager.Instance.GetRADNICIs();
 				GetCredentialsForNadleznis();
+				ProsecnaDubina = String.Empty;
 			}
 			catch (Exception)
 			{
@@ -222,6 +227,24 @@ namespace Service.ViewModels
 		{
 			get { return SelectedRadnik == null ? false : true; }
 		}
+
+		public void RacunajProsecnuDubinu()
+		{
+			try
+			{
+				ProsecnaDubina = DBManager.Instance.ProsecnaDubina(SelectedRadnik.JMBG_ZAP).ToString();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Prekid konekcije sa bazom!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
+
+		public bool CanRacunajProsecnuDubinu
+		{
+			get { return SelectedRadnik == null ? false : true; }
+		}
+
 
 		private bool Validate()
 		{

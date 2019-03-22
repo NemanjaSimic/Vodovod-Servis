@@ -27,7 +27,7 @@
 					<DataGridTextColumn Header="ID EKIPE"  Binding="{Binding EKIPA_ID_EK, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
 				</DataGrid.Columns>
 			</DataGrid>
-			<Button Command="{Binding DeleteCommand}" Content="Delete" HorizontalAlignment="Left" Height="40" Margin="266,442,0,0" VerticalAlignment="Top" Width="263"/>
+			<Button Command="{Binding DeleteCommand}" Content="Izbrisi" HorizontalAlignment="Left" Height="40" Margin="266,442,0,0" VerticalAlignment="Top" Width="263"/>
 		</Grid>
 	</Grid>
 </UserControl>

@@ -373,6 +373,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="BrojRezervisanihDelova" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="char" Mode="In" />
+          <Parameter Name="sum" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ProsecnaDubina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="char" Mode="In" />
+          <Parameter Name="avg" Type="decimal" Mode="InOut" />
+        </Function>
         <EntityContainer Name="VodovodModelStoreContainer">
           <EntitySet Name="DEO_OPREME" EntityType="Self.DEO_OPREME" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EKIPA" EntityType="Self.EKIPA" Schema="dbo" store:Type="Tables" />
@@ -951,6 +959,14 @@
             <End Role="ZAPOSLENI" EntitySet="ZAPOSLENIs" />
             <End Role="RADNIIK" EntitySet="RADNIIKs" />
           </AssociationSet>
+          <FunctionImport Name="BrojRezervisanihDelova">
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="sum" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ProsecnaDubina">
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="avg" Mode="InOut" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1108,6 +1124,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="BrojRezervisanihDelova" FunctionName="VodovodModel.Store.BrojRezervisanihDelova" />
+          <FunctionImportMapping FunctionImportName="ProsecnaDubina" FunctionName="VodovodModel.Store.ProsecnaDubina" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

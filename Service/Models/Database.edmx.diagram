@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3fa0085770344b979df71a74b922d5b2" Name="Diagram1">
+      <Diagram DiagramId="cb2f5b53f4814502a8088e8a3704a8f1" Name="Diagram1" ZoomLevel="99">
         <EntityTypeShape EntityType="VodovodModel.DEO_OPREME" Width="1.5" PointX="1.5" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="VodovodModel.EKIPA" Width="1.5" PointX="9.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="VodovodModel.KORISNIK" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />

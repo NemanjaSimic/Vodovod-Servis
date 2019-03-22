@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,28 @@ namespace Service.Models
 		}
 
 		private DBManager() { }
+
+		public decimal ProsecnaDubina(string idRadnika)
+		{
+			decimal result = 0;
+
+			using (var dbManager = new VodovodEntities())
+			{
+				try
+				{
+					ObjectParameter retVal = new ObjectParameter("avg", typeof(decimal));
+					//dbManager.Database.SqlQuery<float>($"SELECT [dbo].[ProsecnaDubina]({2703996772010},{result})").FirstOrDefault();
+					dbManager.ProsecnaDubina(idRadnika, retVal);
+					result = Convert.ToDecimal(retVal.Value);
+				}
+				catch (Exception ex)
+				{
+
+					throw ex;
+				}
+			}
+			return result;
+		}
 
 		#region Zapolseni
 		public void CreateZaposleni(ZAPOSLENI newZaposleni)

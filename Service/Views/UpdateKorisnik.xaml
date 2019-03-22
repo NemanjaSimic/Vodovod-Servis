@@ -11,7 +11,7 @@
 		<TextBox HorizontalAlignment="Left" Height="43" Margin="293,108,0,0" TextWrapping="Wrap" Text="{Binding Korisnik.PREZ_KOR, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
 		<Label Content="IME:" HorizontalAlignment="Left" Height="43" Margin="44,26,0,0" VerticalAlignment="Top" Width="244" FontWeight="Bold" FontSize="18"/>
 		<Label Content="PREZIME:" HorizontalAlignment="Left" Height="43" Margin="43,108,0,0" VerticalAlignment="Top" Width="244" FontSize="18" FontWeight="Bold"/>
-		<Button Command="{Binding SaveChangesCommand}" Content="Save Changes" HorizontalAlignment="Left" Height="37" Margin="43,189,0,0" VerticalAlignment="Top" Width="472" FontWeight="Bold" FontSize="20" FontFamily="Showcard Gothic"/>
+		<Button Command="{Binding SaveChangesCommand}" Content="Sacuvaj promene" HorizontalAlignment="Left" Height="37" Margin="43,189,0,0" VerticalAlignment="Top" Width="472" FontWeight="Bold" FontSize="20" FontFamily="Showcard Gothic"/>
 		<TextBlock HorizontalAlignment="Left" Height="20" Margin="293,74,0,0" TextWrapping="Wrap" Text="{Binding ValidationIme}" VerticalAlignment="Top" Width="222"/>
 		<TextBlock HorizontalAlignment="Left" Height="20" Margin="293,156,0,0" TextWrapping="Wrap" Text="{Binding ValidationPrez}" VerticalAlignment="Top" Width="222"/>
 	</Grid>

@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="radiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DEO_OPREME">
+    <Key>
+      <PropertyRef Name="ID_TIP" />
+    </Key>
+    <Property Name="TIP_OPREME" Type="varchar(max)" Nullable="false" />
+    <Property Name="VODOVODNA_MREZA_ID_MREZ" Type="varchar" MaxLength="10" />
+    <Property Name="ID_TIP" Type="tinyint" Nullable="false" />
+    <Property Name="DUBINA" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="EKIPA">
+    <Key>
+      <PropertyRef Name="ID_EK" />
+    </Key>
+    <Property Name="ID_EK" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="BR_RAD" Type="tinyint" Nullable="false" />
+    <Property Name="RADNI_NALOG_ID_RADNAL" Type="varchar" MaxLength="10" />
+    <Property Name="RADNI_NALOG_PRIMA_JMBG_ZAP" Type="char" MaxLength="13" />
+    <Property Name="RADNI_NALOG_PRIMA_JMBG_KOR" Type="char" MaxLength="13" />
+    <Property Name="RADNI_NALOG_PRIMA_ID_KVAR" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="KORISNIK">
+    <Key>
+      <PropertyRef Name="JMBG_KOR" />
+    </Key>
+    <Property Name="IME_KOR" Type="varchar(max)" Nullable="false" />
+    <Property Name="PREZ_KOR" Type="varchar(max)" Nullable="false" />
+    <Property Name="JMBG_KOR" Type="char" MaxLength="13" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KVAR">
+    <Key>
+      <PropertyRef Name="ID_KVAR" />
+    </Key>
+    <Property Name="ID_KVAR" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TIP_KVAR" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOKACIJA">
+    <Key>
+      <PropertyRef Name="SIF_LOK" />
+    </Key>
+    <Property Name="SIF_LOK" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ULICA" Type="varchar(max)" Nullable="false" />
+    <Property Name="BROJ" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="GRAD" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MAGACIN">
+    <Key>
+      <PropertyRef Name="ID_MAG" />
+    </Key>
+    <Property Name="ID_MAG" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="KAPACITET" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NADLEZNI">
+    <Key>
+      <PropertyRef Name="JMBG_ZAP" />
+    </Key>
+    <Property Name="JMBG_ZAP" Type="char" MaxLength="13" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NALAZI_SE_NA">
+    <Key>
+      <PropertyRef Name="ID_DEO_LOK" />
+      <PropertyRef Name="LOKACIJA_SIF_LOK" />
+      <PropertyRef Name="DEO_OPREME_ID_TIP" />
+    </Key>
+    <Property Name="ID_DEO_LOK" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DUBINA" Type="real" Nullable="false" />
+    <Property Name="LOKACIJA_SIF_LOK" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DEO_OPREME_ID_TIP" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NALAZI_U">
+    <Key>
+      <PropertyRef Name="MAGACIN_ID_MAG" />
+      <PropertyRef Name="DEO_OPREME_ID_TIP" />
+      <PropertyRef Name="ID_DEO" />
+    </Key>
+    <Property Name="MAGACIN_ID_MAG" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DEO_OPREME_ID_TIP" Type="tinyint" Nullable="false" />
+    <Property Name="ID_DEO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EKIPA_ID_EK" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PRIJAVLJUJE">
+    <Key>
+      <PropertyRef Name="KORISNIK_JMBG_KOR" />
+      <PropertyRef Name="KVAR_ID_KVAR" />
+    </Key>
+    <Property Name="KORISNIK_JMBG_KOR" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="KVAR_ID_KVAR" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NALAZI_SE_NA_ID_DEO_LOK" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NALAZI_SE_NA_SIF_LOK" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NALAZI_SE_NA_ID_TIP" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRIMA">
+    <Key>
+      <PropertyRef Name="NADLEZNI_JMBG_ZAP" />
+      <PropertyRef Name="PRIJAVLJUJE_KORISNIK_JMBG_KOR" />
+      <PropertyRef Name="PRIJAVLJUJE_KVAR_ID_KVAR" />
+    </Key>
+    <Property Name="NADLEZNI_JMBG_ZAP" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="PRIJAVLJUJE_KORISNIK_JMBG_KOR" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="PRIJAVLJUJE_KVAR_ID_KVAR" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RACUN">
+    <Key>
+      <PropertyRef Name="ID_RAC" />
+    </Key>
+    <Property Name="ID_RAC" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CENA" Type="money" Nullable="false" />
+    <Property Name="PRIMA_JMBG_ZAP" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="PRIMA_JMBG_KOR" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="PRIMA_ID_KVAR" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RADNI_NALOG">
+    <Key>
+      <PropertyRef Name="ID_RADNAL" />
+      <PropertyRef Name="PRIMA_JMBG_ZAP" />
+      <PropertyRef Name="PRIMA_JMBG_KOR" />
+      <PropertyRef Name="PRIMA_ID_KVAR" />
+    </Key>
+    <Property Name="ID_RADNAL" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PRIMA_JMBG_ZAP" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="PRIMA_JMBG_KOR" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="PRIMA_ID_KVAR" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RADNIIK">
+    <Key>
+      <PropertyRef Name="JMBG_ZAP" />
+    </Key>
+    <Property Name="JMBG_ZAP" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="EKIPA_ID_EK" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="VODOVODNA_MREZA">
+    <Key>
+      <PropertyRef Name="ID_MREZ" />
+    </Key>
+    <Property Name="ID_MREZ" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="GRAD" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ZAPOSLENI">
+    <Key>
+      <PropertyRef Name="JMBG_ZAP" />
+    </Key>
+    <Property Name="JMBG_ZAP" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="IME_ZAP" Type="varchar(max)" Nullable="false" />
+    <Property Name="PREZ_ZAP" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="DEO_OPREME_VODOVODNA_MREZA_FK">
+    <End Role="VODOVODNA_MREZA" Type="Self.VODOVODNA_MREZA" Multiplicity="0..1" />
+    <End Role="DEO_OPREME" Type="Self.DEO_OPREME" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VODOVODNA_MREZA">
+        <PropertyRef Name="ID_MREZ" />
+      </Principal>
+      <Dependent Role="DEO_OPREME">
+        <PropertyRef Name="VODOVODNA_MREZA_ID_MREZ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EKIPA_RADNI_NALOG_FK">
+    <End Role="RADNI_NALOG" Type="Self.RADNI_NALOG" Multiplicity="0..1" />
+    <End Role="EKIPA" Type="Self.EKIPA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RADNI_NALOG">
+        <PropertyRef Name="ID_RADNAL" />
+        <PropertyRef Name="PRIMA_JMBG_ZAP" />
+        <PropertyRef Name="PRIMA_JMBG_KOR" />
+        <PropertyRef Name="PRIMA_ID_KVAR" />
+      </Principal>
+      <Dependent Role="EKIPA">
+        <PropertyRef Name="RADNI_NALOG_ID_RADNAL" />
+        <PropertyRef Name="RADNI_NALOG_PRIMA_JMBG_ZAP" />
+        <PropertyRef Name="RADNI_NALOG_PRIMA_JMBG_KOR" />
+        <PropertyRef Name="RADNI_NALOG_PRIMA_ID_KVAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NADLEZNI_ZAPOSLENI_FK">
+    <End Role="ZAPOSLENI" Type="Self.ZAPOSLENI" Multiplicity="1" />
+    <End Role="NADLEZNI" Type="Self.NADLEZNI" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ZAPOSLENI">
+        <PropertyRef Name="JMBG_ZAP" />
+      </Principal>
+      <Dependent Role="NADLEZNI">
+        <PropertyRef Name="JMBG_ZAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NALAZI_SE_NA_DEO_OPREME_FK">
+    <End Role="DEO_OPREME" Type="Self.DEO_OPREME" Multiplicity="1" />
+    <End Role="NALAZI_SE_NA" Type="Self.NALAZI_SE_NA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEO_OPREME">
+        <PropertyRef Name="ID_TIP" />
+      </Principal>
+      <Dependent Role="NALAZI_SE_NA">
+        <PropertyRef Name="DEO_OPREME_ID_TIP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NALAZI_SE_NA_LOKACIJA_FK">
+    <End Role="LOKACIJA" Type="Self.LOKACIJA" Multiplicity="1" />
+    <End Role="NALAZI_SE_NA" Type="Self.NALAZI_SE_NA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOKACIJA">
+        <PropertyRef Name="SIF_LOK" />
+      </Principal>
+      <Dependent Role="NALAZI_SE_NA">
+        <PropertyRef Name="LOKACIJA_SIF_LOK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NALAZI_U_DEO_OPREME_FK">
+    <End Role="DEO_OPREME" Type="Self.DEO_OPREME" Multiplicity="1" />
+    <End Role="NALAZI_U" Type="Self.NALAZI_U" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEO_OPREME">
+        <PropertyRef Name="ID_TIP" />
+      </Principal>
+      <Dependent Role="NALAZI_U">
+        <PropertyRef Name="DEO_OPREME_ID_TIP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NALAZI_U_EKIPA_FK">
+    <End Role="EKIPA" Type="Self.EKIPA" Multiplicity="0..1" />
+    <End Role="NALAZI_U" Type="Self.NALAZI_U" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EKIPA">
+        <PropertyRef Name="ID_EK" />
+      </Principal>
+      <Dependent Role="NALAZI_U">
+        <PropertyRef Name="EKIPA_ID_EK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NALAZI_U_MAGACIN_FK">
+    <End Role="MAGACIN" Type="Self.MAGACIN" Multiplicity="1" />
+    <End Role="NALAZI_U" Type="Self.NALAZI_U" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAGACIN">
+        <PropertyRef Name="ID_MAG" />
+      </Principal>
+      <Dependent Role="NALAZI_U">
+        <PropertyRef Name="MAGACIN_ID_MAG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRIJAVLJUJE_KORISNIK_FK">
+    <End Role="KORISNIK" Type="Self.KORISNIK" Multiplicity="1" />
+    <End Role="PRIJAVLJUJE" Type="Self.PRIJAVLJUJE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KORISNIK">
+        <PropertyRef Name="JMBG_KOR" />
+      </Principal>
+      <Dependent Role="PRIJAVLJUJE">
+        <PropertyRef Name="KORISNIK_JMBG_KOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRIJAVLJUJE_KVAR_FK">
+    <End Role="KVAR" Type="Self.KVAR" Multiplicity="1" />
+    <End Role="PRIJAVLJUJE" Type="Self.PRIJAVLJUJE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KVAR">
+        <PropertyRef Name="ID_KVAR" />
+      </Principal>
+      <Dependent Role="PRIJAVLJUJE">
+        <PropertyRef Name="KVAR_ID_KVAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRIJAVLJUJE_NALAZI_SE_NA_FK">
+    <End Role="NALAZI_SE_NA" Type="Self.NALAZI_SE_NA" Multiplicity="1" />
+    <End Role="PRIJAVLJUJE" Type="Self.PRIJAVLJUJE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NALAZI_SE_NA">
+        <PropertyRef Name="ID_DEO_LOK" />
+        <PropertyRef Name="LOKACIJA_SIF_LOK" />
+        <PropertyRef Name="DEO_OPREME_ID_TIP" />
+      </Principal>
+      <Dependent Role="PRIJAVLJUJE">
+        <PropertyRef Name="NALAZI_SE_NA_ID_DEO_LOK" />
+        <PropertyRef Name="NALAZI_SE_NA_SIF_LOK" />
+        <PropertyRef Name="NALAZI_SE_NA_ID_TIP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRIMA_NADLEZNI_FK">
+    <End Role="NADLEZNI" Type="Self.NADLEZNI" Multiplicity="1" />
+    <End Role="PRIMA" Type="Self.PRIMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NADLEZNI">
+        <PropertyRef Name="JMBG_ZAP" />
+      </Principal>
+      <Dependent Role="PRIMA">
+        <PropertyRef Name="NADLEZNI_JMBG_ZAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRIMA_PRIJAVLJUJE_FK">
+    <End Role="PRIJAVLJUJE" Type="Self.PRIJAVLJUJE" Multiplicity="1" />
+    <End Role="PRIMA" Type="Self.PRIMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRIJAVLJUJE">
+        <PropertyRef Name="KORISNIK_JMBG_KOR" />
+        <PropertyRef Name="KVAR_ID_KVAR" />
+      </Principal>
+      <Dependent Role="PRIMA">
+        <PropertyRef Name="PRIJAVLJUJE_KORISNIK_JMBG_KOR" />
+        <PropertyRef Name="PRIJAVLJUJE_KVAR_ID_KVAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RACUN_PRIMA_FK">
+    <End Role="PRIMA" Type="Self.PRIMA" Multiplicity="1" />
+    <End Role="RACUN" Type="Self.RACUN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRIMA">
+        <PropertyRef Name="NADLEZNI_JMBG_ZAP" />
+        <PropertyRef Name="PRIJAVLJUJE_KORISNIK_JMBG_KOR" />
+        <PropertyRef Name="PRIJAVLJUJE_KVAR_ID_KVAR" />
+      </Principal>
+      <Dependent Role="RACUN">
+        <PropertyRef Name="PRIMA_JMBG_ZAP" />
+        <PropertyRef Name="PRIMA_JMBG_KOR" />
+        <PropertyRef Name="PRIMA_ID_KVAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RADNI_NALOG_PRIMA_FK">
+    <End Role="PRIMA" Type="Self.PRIMA" Multiplicity="1" />
+    <End Role="RADNI_NALOG" Type="Self.RADNI_NALOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRIMA">
+        <PropertyRef Name="NADLEZNI_JMBG_ZAP" />
+        <PropertyRef Name="PRIJAVLJUJE_KORISNIK_JMBG_KOR" />
+        <PropertyRef Name="PRIJAVLJUJE_KVAR_ID_KVAR" />
+      </Principal>
+      <Dependent Role="RADNI_NALOG">
+        <PropertyRef Name="PRIMA_JMBG_ZAP" />
+        <PropertyRef Name="PRIMA_JMBG_KOR" />
+        <PropertyRef Name="PRIMA_ID_KVAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RADNIIK_EKIPA_FK">
+    <End Role="EKIPA" Type="Self.EKIPA" Multiplicity="0..1" />
+    <End Role="RADNIIK" Type="Self.RADNIIK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EKIPA">
+        <PropertyRef Name="ID_EK" />
+      </Principal>
+      <Dependent Role="RADNIIK">
+        <PropertyRef Name="EKIPA_ID_EK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RADNIIK_ZAPOSLENI_FK">
+    <End Role="ZAPOSLENI" Type="Self.ZAPOSLENI" Multiplicity="1" />
+    <End Role="RADNIIK" Type="Self.RADNIIK" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ZAPOSLENI">
+        <PropertyRef Name="JMBG_ZAP" />
+      </Principal>
+      <Dependent Role="RADNIIK">
+        <PropertyRef Name="JMBG_ZAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="BrojRezervisanihDelova" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="char" Mode="In" />
+    <Parameter Name="sum" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="ProsecnaDubina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="char" Mode="In" />
+    <Parameter Name="avg" Type="decimal" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="radiModelStoreContainer">
+    <EntitySet Name="DEO_OPREME" EntityType="Self.DEO_OPREME" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EKIPA" EntityType="Self.EKIPA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KORISNIK" EntityType="Self.KORISNIK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KVAR" EntityType="Self.KVAR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOKACIJA" EntityType="Self.LOKACIJA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAGACIN" EntityType="Self.MAGACIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NADLEZNI" EntityType="Self.NADLEZNI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NALAZI_SE_NA" EntityType="Self.NALAZI_SE_NA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NALAZI_U" EntityType="Self.NALAZI_U" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRIJAVLJUJE" EntityType="Self.PRIJAVLJUJE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRIMA" EntityType="Self.PRIMA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RACUN" EntityType="Self.RACUN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RADNI_NALOG" EntityType="Self.RADNI_NALOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RADNIIK" EntityType="Self.RADNIIK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VODOVODNA_MREZA" EntityType="Self.VODOVODNA_MREZA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZAPOSLENI" EntityType="Self.ZAPOSLENI" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="DEO_OPREME_VODOVODNA_MREZA_FK" Association="Self.DEO_OPREME_VODOVODNA_MREZA_FK">
+      <End Role="VODOVODNA_MREZA" EntitySet="VODOVODNA_MREZA" />
+      <End Role="DEO_OPREME" EntitySet="DEO_OPREME" />
+    </AssociationSet>
+    <AssociationSet Name="EKIPA_RADNI_NALOG_FK" Association="Self.EKIPA_RADNI_NALOG_FK">
+      <End Role="RADNI_NALOG" EntitySet="RADNI_NALOG" />
+      <End Role="EKIPA" EntitySet="EKIPA" />
+    </AssociationSet>
+    <AssociationSet Name="NADLEZNI_ZAPOSLENI_FK" Association="Self.NADLEZNI_ZAPOSLENI_FK">
+      <End Role="ZAPOSLENI" EntitySet="ZAPOSLENI" />
+      <End Role="NADLEZNI" EntitySet="NADLEZNI" />
+    </AssociationSet>
+    <AssociationSet Name="NALAZI_SE_NA_DEO_OPREME_FK" Association="Self.NALAZI_SE_NA_DEO_OPREME_FK">
+      <End Role="DEO_OPREME" EntitySet="DEO_OPREME" />
+      <End Role="NALAZI_SE_NA" EntitySet="NALAZI_SE_NA" />
+    </AssociationSet>
+    <AssociationSet Name="NALAZI_SE_NA_LOKACIJA_FK" Association="Self.NALAZI_SE_NA_LOKACIJA_FK">
+      <End Role="LOKACIJA" EntitySet="LOKACIJA" />
+      <End Role="NALAZI_SE_NA" EntitySet="NALAZI_SE_NA" />
+    </AssociationSet>
+    <AssociationSet Name="NALAZI_U_DEO_OPREME_FK" Association="Self.NALAZI_U_DEO_OPREME_FK">
+      <End Role="DEO_OPREME" EntitySet="DEO_OPREME" />
+      <End Role="NALAZI_U" EntitySet="NALAZI_U" />
+    </AssociationSet>
+    <AssociationSet Name="NALAZI_U_EKIPA_FK" Association="Self.NALAZI_U_EKIPA_FK">
+      <End Role="EKIPA" EntitySet="EKIPA" />
+      <End Role="NALAZI_U" EntitySet="NALAZI_U" />
+    </AssociationSet>
+    <AssociationSet Name="NALAZI_U_MAGACIN_FK" Association="Self.NALAZI_U_MAGACIN_FK">
+      <End Role="MAGACIN" EntitySet="MAGACIN" />
+      <End Role="NALAZI_U" EntitySet="NALAZI_U" />
+    </AssociationSet>
+    <AssociationSet Name="PRIJAVLJUJE_KORISNIK_FK" Association="Self.PRIJAVLJUJE_KORISNIK_FK">
+      <End Role="KORISNIK" EntitySet="KORISNIK" />
+      <End Role="PRIJAVLJUJE" EntitySet="PRIJAVLJUJE" />
+    </AssociationSet>
+    <AssociationSet Name="PRIJAVLJUJE_KVAR_FK" Association="Self.PRIJAVLJUJE_KVAR_FK">
+      <End Role="KVAR" EntitySet="KVAR" />
+      <End Role="PRIJAVLJUJE" EntitySet="PRIJAVLJUJE" />
+    </AssociationSet>
+    <AssociationSet Name="PRIJAVLJUJE_NALAZI_SE_NA_FK" Association="Self.PRIJAVLJUJE_NALAZI_SE_NA_FK">
+      <End Role="NALAZI_SE_NA" EntitySet="NALAZI_SE_NA" />
+      <End Role="PRIJAVLJUJE" EntitySet="PRIJAVLJUJE" />
+    </AssociationSet>
+    <AssociationSet Name="PRIMA_NADLEZNI_FK" Association="Self.PRIMA_NADLEZNI_FK">
+      <End Role="NADLEZNI" EntitySet="NADLEZNI" />
+      <End Role="PRIMA" EntitySet="PRIMA" />
+    </AssociationSet>
+    <AssociationSet Name="PRIMA_PRIJAVLJUJE_FK" Association="Self.PRIMA_PRIJAVLJUJE_FK">
+      <End Role="PRIJAVLJUJE" EntitySet="PRIJAVLJUJE" />
+      <End Role="PRIMA" EntitySet="PRIMA" />
+    </AssociationSet>
+    <AssociationSet Name="RACUN_PRIMA_FK" Association="Self.RACUN_PRIMA_FK">
+      <End Role="PRIMA" EntitySet="PRIMA" />
+      <End Role="RACUN" EntitySet="RACUN" />
+    </AssociationSet>
+    <AssociationSet Name="RADNI_NALOG_PRIMA_FK" Association="Self.RADNI_NALOG_PRIMA_FK">
+      <End Role="PRIMA" EntitySet="PRIMA" />
+      <End Role="RADNI_NALOG" EntitySet="RADNI_NALOG" />
+    </AssociationSet>
+    <AssociationSet Name="RADNIIK_EKIPA_FK" Association="Self.RADNIIK_EKIPA_FK">
+      <End Role="EKIPA" EntitySet="EKIPA" />
+      <End Role="RADNIIK" EntitySet="RADNIIK" />
+    </AssociationSet>
+    <AssociationSet Name="RADNIIK_ZAPOSLENI_FK" Association="Self.RADNIIK_ZAPOSLENI_FK">
+      <End Role="ZAPOSLENI" EntitySet="ZAPOSLENI" />
+      <End Role="RADNIIK" EntitySet="RADNIIK" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -9,7 +9,7 @@
 	<Grid>
 		<TextBox HorizontalAlignment="Left" Height="43" Margin="293,26,0,0" TextWrapping="Wrap" Text="{Binding Deo.TIP_OPREME, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
 		<Label Content="NAZIV TIPA OPREME:" HorizontalAlignment="Left" Height="43" Margin="44,26,0,0" VerticalAlignment="Top" Width="244" FontWeight="Bold" FontSize="18"/>
-		<Button Command="{Binding SaveChangesCommand}" Content="Save Changes" HorizontalAlignment="Left" Height="37" Margin="43,189,0,0" VerticalAlignment="Top" Width="472" FontWeight="Bold" FontSize="20" FontFamily="Showcard Gothic"/>
+		<Button Command="{Binding SaveChangesCommand}" Content="Sacuvaj promene" HorizontalAlignment="Left" Height="37" Margin="43,189,0,0" VerticalAlignment="Top" Width="472" FontWeight="Bold" FontSize="20" FontFamily="Showcard Gothic"/>
 		<TextBlock HorizontalAlignment="Left" Height="20" Margin="293,74,0,0" TextWrapping="Wrap" Text="{Binding ValidationTip}" VerticalAlignment="Top" Width="222"/>
 		<TextBox HorizontalAlignment="Left" Height="43" Margin="289,103,0,0" TextWrapping="Wrap" Text="{Binding Dubina, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" FontSize="14"/>
 		<Label Content="DUBINA ZAKOPAVANJA:" HorizontalAlignment="Left" Height="42" Margin="44,103,0,0" VerticalAlignment="Top" Width="180" FontSize="18" FontWeight="Bold"/>

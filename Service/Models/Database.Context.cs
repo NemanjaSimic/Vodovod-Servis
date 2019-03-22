@@ -12,6 +12,8 @@ namespace Service.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class VodovodEntities : DbContext
     {
@@ -41,5 +43,23 @@ namespace Service.Models
         public virtual DbSet<RADNIIK> RADNIIKs { get; set; }
         public virtual DbSet<VODOVODNA_MREZA> VODOVODNA_MREZA { get; set; }
         public virtual DbSet<ZAPOSLENI> ZAPOSLENIs { get; set; }
+    
+        public virtual int BrojRezervisanihDelova(string id, ObjectParameter sum)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("BrojRezervisanihDelova", idParameter, sum);
+        }
+    
+        public virtual int ProsecnaDubina(string id, ObjectParameter avg)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ProsecnaDubina", idParameter, avg);
+        }
     }
 }

@@ -120,5 +120,8 @@
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\RADNIK_FK2.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\NALAZI_U_FK3.sql" />
     <Build Include="Schema objects\Schemas\dbo\Tables\Keys\KORISNIK_PK.sql" />
+    <Build Include="Schema objects\Schemas\dbo\Tables\Triggers\DodavanjeRadnikaTriger.sql" />
+    <Build Include="Schema objects\Schemas\dbo\Programmability\Stored Procedures\ProsecnaDubina.sql" />
+    <Build Include="Schema objects\Schemas\dbo\Programmability\Stored Procedures\BrojRezervisanihDelova.sql" />
   </ItemGroup>
 </Project>

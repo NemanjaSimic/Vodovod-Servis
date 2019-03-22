@@ -142,7 +142,7 @@ namespace Service.ViewModels
 		public void Update()
 		{
 			Window win = new UpdateDeo();
-
+			
 			win.DataContext = new UpdateDeoViewModel()
 			{
 				Deo = new DEO_OPREME()

@@ -79,6 +79,7 @@
     <Compile Include="Commands\DeleteNadlezniCommand.cs" />
     <Compile Include="Commands\DeleteRadnikCommand.cs" />
     <Compile Include="Commands\DeleteStanjeCommand.cs" />
+    <Compile Include="Commands\ProsecnaDubinaCommand.cs" />
     <Compile Include="Commands\PutDeoCommand.cs" />
     <Compile Include="Commands\PutInEkipaCommand.cs" />
     <Compile Include="Commands\ReserveDeoCommand.cs" />
@@ -94,71 +95,70 @@
     <Compile Include="Commands\UpdateMagacinCommand.cs" />
     <Compile Include="Commands\UpdateNadlzeniCommand.cs" />
     <Compile Include="Commands\UpdateRadnikCommand.cs" />
-    <Compile Include="Models\Datebase.Context.cs">
+    <Compile Include="Models\Database.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Datebase.Context.tt</DependentUpon>
+      <DependentUpon>Database.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Datebase.cs">
+    <Compile Include="Models\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Datebase.Designer.cs">
+    <Compile Include="Models\Database.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Datebase.edmx</DependentUpon>
+      <DependentUpon>Database.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DBManager.cs" />
     <Compile Include="Models\DEO_OPREME.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EKIPA.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KORISNIK.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KVAR.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOKACIJA.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MAGACIN.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NADLEZNI.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NALAZI_SE_NA.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NALAZI_U.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PRIJAVLJUJE.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PRIMA.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RACUN.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RADNIIK.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RADNI_NALOG.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VODOVODNA_MREZA.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ZAPOSLENI.cs">
-      <DependentUpon>Datebase.tt</DependentUpon>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyICommand.cs" />
     <Compile Include="ViewModels\DeoOpremeViewModel.cs" />
     <Compile Include="ViewModels\EkipeViewModel.cs" />
     <Compile Include="ViewModels\KorisniciViewModel.cs" />
@@ -286,12 +286,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Datebase.edmx">
+    <EntityDeploy Include="Models\Database.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Datebase.Designer.cs</LastGenOutput>
+      <LastGenOutput>Database.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Datebase.edmx.diagram">
-      <DependentUpon>Datebase.edmx</DependentUpon>
+    <None Include="Models\Database.edmx.diagram">
+      <DependentUpon>Database.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -306,19 +306,19 @@
     <Resource Include="Pictures\close_icon_png_289229.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Datebase.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Datebase.edmx</DependentUpon>
-      <LastGenOutput>Datebase.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Datebase.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Datebase.edmx</DependentUpon>
-      <LastGenOutput>Datebase.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Models\Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

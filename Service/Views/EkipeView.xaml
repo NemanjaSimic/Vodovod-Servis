@@ -6,15 +6,15 @@
              xmlns:local="clr-namespace:Service.Views"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="800">
-	<Grid Background="Blue">
+	<Grid Background="#291D35">
 		<Grid.RowDefinitions>
 			<RowDefinition/>
 			<RowDefinition Height="auto" MinHeight="493.6"/>
 		</Grid.RowDefinitions>
 		<Grid Grid.Row="0" Margin="10,10,-10,3.8">
-			<Button Command="{Binding CreateCommand}" Content="Napravi novu ekipu" HorizontalAlignment="Left" Height="36" Margin="10,73,0,0" VerticalAlignment="Top" Width="393" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<Button Command="{Binding CreateCommand}" Content="Napravi novu ekipu" HorizontalAlignment="Left" Height="36" Margin="10,73,0,0" VerticalAlignment="Top" Width="393" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF190F22" Foreground="#FF715889"/>
 			<TextBox HorizontalAlignment="Left" Height="43" Margin="181,0,0,0" TextWrapping="Wrap" Text="{Binding NewEkipa.ID_EK, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
-			<Label Content="ID EKIPE:" HorizontalAlignment="Left" Height="43" Margin="10,0,0,0" VerticalAlignment="Top" Width="129" FontWeight="Bold" FontSize="18"/>
+			<Label Content="ID EKIPE:" HorizontalAlignment="Left" Height="43" Margin="10,0,0,0" VerticalAlignment="Top" Width="129" FontWeight="Bold" FontSize="18" Foreground="#FF715889"/>
 			<TextBlock HorizontalAlignment="Left" Height="20" Margin="181,48,0,0" TextWrapping="Wrap" Text="{Binding ValidationID, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
 		</Grid>
 		<Grid Grid.Row="1" Margin="0,1.2,0,0.4">
@@ -24,7 +24,7 @@
 					<DataGridTextColumn Header="BROJ RADNIKA"  Binding="{Binding BR_RAD, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
 				</DataGrid.Columns>
 			</DataGrid>
-			<Button Command="{Binding DeleteCommand}" Content="Izbrisi" HorizontalAlignment="Left" Height="40" Margin="246,442,0,0" VerticalAlignment="Top" Width="291" RenderTransformOrigin="0.53,0.57"/>
+			<Button Command="{Binding DeleteCommand}" Content="Izbrisi" HorizontalAlignment="Left" Height="40" Margin="246,442,0,0" VerticalAlignment="Top" Width="291" RenderTransformOrigin="0.53,0.57" Foreground="#FF715889" FontWeight="Bold" Background="#FF190F22"/>
 		</Grid>
 	</Grid>
 </UserControl>

@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Service.Views"
         mc:Ignorable="d"
          Title="UpdateDeo" Height="284.827" Width="572.399" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-	<Grid>
+	<Grid Background="#291D35">
 		<TextBox HorizontalAlignment="Left" Height="43" Margin="293,26,0,0" TextWrapping="Wrap" Text="{Binding StringKap, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
-		<Label Content="KAPACITET MAGACINA:" HorizontalAlignment="Left" Height="43" Margin="44,26,0,0" VerticalAlignment="Top" Width="244" FontWeight="Bold" FontSize="18"/>
-		<Button Command="{Binding SaveChangesCommand}" Content="Sacuvaj promene" HorizontalAlignment="Left" Height="37" Margin="43,189,0,0" VerticalAlignment="Top" Width="472" FontWeight="Bold" FontSize="20" FontFamily="Showcard Gothic"/>
+		<Label Content="KAPACITET MAGACINA:" HorizontalAlignment="Left" Height="43" Margin="44,26,0,0" VerticalAlignment="Top" Width="244" FontWeight="Bold" FontSize="18" Foreground="#FF715889"/>
+		<Button Command="{Binding SaveChangesCommand}" Content="Sacuvaj promene" HorizontalAlignment="Left" Height="37" Margin="43,189,0,0" VerticalAlignment="Top" Width="472" FontWeight="Bold" FontSize="20" FontFamily="Showcard Gothic" Foreground="#FF715889" Background="#FF190F22"/>
 		<TextBlock HorizontalAlignment="Left" Height="20" Margin="293,74,0,0" TextWrapping="Wrap" Text="{Binding ValidationKap}" VerticalAlignment="Top" Width="222"/>
 	</Grid>
 </Window>

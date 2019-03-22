@@ -6,30 +6,30 @@
              xmlns:local="clr-namespace:Service.Views"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="800">
-	<Grid Background="Blue" Margin="0,0,0,0.4">
+	<Grid Background="#291D35" Margin="0,0,0,0.4">
 		<Grid.RowDefinitions>
 			<RowDefinition/>
 			<RowDefinition Height="auto" MinHeight="489.6"/>
 		</Grid.RowDefinitions>
 		<Grid Grid.Row="0" Margin="0,0,0,489.4" Grid.RowSpan="2" >
-			<Button Command="{Binding CreateCommand}" Content="Napravi novog radnika" HorizontalAlignment="Left" Height="36" Margin="9,211,0,0" VerticalAlignment="Top" Width="356" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<Button Command="{Binding CreateCommand}" Content="Napravi novog radnika" HorizontalAlignment="Left" Height="36" Margin="9,211,0,0" VerticalAlignment="Top" Width="356" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF190F22" Foreground="#FF715889"/>
 			<TextBox HorizontalAlignment="Left" Height="43" Margin="134,0,0,0" TextWrapping="Wrap" Text="{Binding NewZaposleni.IME_ZAP, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
 			<TextBox HorizontalAlignment="Left" Height="43" Margin="134,68,0,0" TextWrapping="Wrap" Text="{Binding NewZaposleni.PREZ_ZAP, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
 			<TextBox HorizontalAlignment="Left" Height="43" Margin="134,138,0,0" TextWrapping="Wrap" Text="{Binding NewZaposleni.JMBG_ZAP, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20"/>
-			<Label Content="IME:" HorizontalAlignment="Left" Height="43" Margin="10,0,0,0" VerticalAlignment="Top" Width="119" FontWeight="Bold" FontSize="18"/>
-			<Label Content="PREZIME:" HorizontalAlignment="Left" Height="43" Margin="9,68,0,0" VerticalAlignment="Top" Width="120" FontSize="18" FontWeight="Bold"/>
-			<Label Content="JMBG:" HorizontalAlignment="Left" Height="43" Margin="10,138,0,0" VerticalAlignment="Top" Width="119" FontSize="18" FontWeight="Bold"/>
+			<Label Content="IME:" HorizontalAlignment="Left" Height="43" Margin="10,0,0,0" VerticalAlignment="Top" Width="119" FontWeight="Bold" FontSize="18" Foreground="#FF715889"/>
+			<Label Content="PREZIME:" HorizontalAlignment="Left" Height="43" Margin="9,68,0,0" VerticalAlignment="Top" Width="120" FontSize="18" FontWeight="Bold" Foreground="#FF715889"/>
+			<Label Content="JMBG:" HorizontalAlignment="Left" Height="43" Margin="10,138,0,0" VerticalAlignment="Top" Width="119" FontSize="18" FontWeight="Bold" Foreground="#FF715889"/>
 			<TextBlock HorizontalAlignment="Left" Height="20" Margin="134,48,0,0" TextWrapping="Wrap" Text="{Binding ValidationIme, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
 			<TextBlock HorizontalAlignment="Left" Height="20" Margin="134,116,0,0" TextWrapping="Wrap" Text="{Binding ValidationPrez, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
 			<TextBlock HorizontalAlignment="Left" Height="20" Margin="134,191,0,0" TextWrapping="Wrap" Text="{Binding ValidationJMBG, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red" />
-			<Button Command="{Binding PutInCommand}" Content="Ubaci radnika u ekipu" HorizontalAlignment="Left" Height="36" Margin="438,112,0,0" VerticalAlignment="Top" Width="303" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<Button Command="{Binding PutInCommand}" Content="Ubaci radnika u ekipu" HorizontalAlignment="Left" Height="36" Margin="438,112,0,0" VerticalAlignment="Top" Width="303" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF190F22" Foreground="#FF715889"/>
 			<ComboBox ItemsSource="{Binding Ekipe, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding SelectedEkipa, UpdateSourceTrigger=PropertyChanged}" Margin="481,41,97,188.8" />
-			<Label Content="ID EKIPE ZA REZERVACIJU DELA:" HorizontalAlignment="Left" Height="38" Margin="444,-2,0,0" VerticalAlignment="Top" Width="297" FontWeight="Bold" FontSize="18"/>
+			<Label Content="ID EKIPE ZA REZERVACIJU DELA:" HorizontalAlignment="Left" Height="38" Margin="444,-2,0,0" VerticalAlignment="Top" Width="297" FontWeight="Bold" FontSize="18" Foreground="#FF715889"/>
 			<TextBlock HorizontalAlignment="Left" Height="20" Margin="481,87,0,0" TextWrapping="Wrap" Text="{Binding ValidationEkipa, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red" />
-			<Button Command="{Binding TakeOutCommand}" Content="Izbaci radnika iz ekipe" HorizontalAlignment="Left" Height="36" Margin="438,153,0,0" VerticalAlignment="Top" Width="303" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
-			<Button Command="{Binding ProsecnaDubinaCommand}" Content="Prosecna dubina" HorizontalAlignment="Left" Height="22" Margin="420,210,0,0" VerticalAlignment="Top" Width="233" FontFamily="Sitka Small" FontSize="16" FontWeight="Bold" Background="#FF769CB0"/>
+			<Button Command="{Binding TakeOutCommand}" Content="Izbaci radnika iz ekipe" HorizontalAlignment="Left" Height="36" Margin="438,153,0,0" VerticalAlignment="Top" Width="303" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF190F22" Foreground="#FF715889"/>
+			<Button Command="{Binding ProsecnaDubinaCommand}" Content="Prosecna dubina" HorizontalAlignment="Left" Height="22" Margin="420,210,0,0" VerticalAlignment="Top" Width="233" FontFamily="Sitka Small" FontSize="16" FontWeight="Bold" Background="#FF190F22" Foreground="#FF715889"/>
 			<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="22" Margin="678,210,0,0" TextWrapping="Wrap" Text="{Binding ProsecnaDubina, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="63" FontSize="16" RenderTransformOrigin="1.529,0.873"/>
-			<Button Command="{Binding BrojMagacinaCommand}" Content="Broj magacina" HorizontalAlignment="Left" Height="22" Margin="420,239,0,0" VerticalAlignment="Top" Width="233" FontFamily="Sitka Small" FontSize="16" FontWeight="Bold" Background="#FF769CB0"/>
+			<Button Command="{Binding BrojMagacinaCommand}" Content="Broj magacina" HorizontalAlignment="Left" Height="22" Margin="420,239,0,0" VerticalAlignment="Top" Width="233" FontFamily="Sitka Small" FontSize="16" FontWeight="Bold" Background="#FF190F22" Foreground="#FF715889"/>
 			<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="22" Margin="678,238,0,0" TextWrapping="Wrap" Text="{Binding BrojMagacina, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="63" FontSize="16" RenderTransformOrigin="1.529,0.873"/>
 
 		</Grid>
@@ -42,8 +42,8 @@
 					<DataGridTextColumn Header="EKIPA"  Binding="{Binding EKIPA_ID_EK, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
 				</DataGrid.Columns>
 			</DataGrid>
-			<Button Command="{Binding UpdateCommand}" Content="Izmeni" HorizontalAlignment="Left" Height="39" Margin="10,443,0,0" VerticalAlignment="Top" Width="263"/>
-			<Button Command="{Binding DeleteCommand}" Content="Izbrisi" HorizontalAlignment="Left" Height="40" Margin="527,442,0,0" VerticalAlignment="Top" Width="263"/>
+			<Button Command="{Binding UpdateCommand}" Content="Izmeni" HorizontalAlignment="Left" Height="39" Margin="10,443,0,0" VerticalAlignment="Top" Width="263" FontWeight="Bold" Foreground="#FF715889" Background="#FF190F22"/>
+			<Button Command="{Binding DeleteCommand}" Content="Izbrisi" HorizontalAlignment="Left" Height="40" Margin="527,442,0,0" VerticalAlignment="Top" Width="263" Foreground="#FF715889" FontWeight="Bold" Background="#FF190F22"/>
 		</Grid>
 
 	</Grid>

@@ -135,12 +135,20 @@ namespace Service.ViewModels
 		{
 			try
 			{
-				DBManager.Instance.DeleteRadnik(SelectedRadnik.JMBG_ZAP);
+				if (!String.IsNullOrEmpty(SelectedRadnik.EKIPA_ID_EK))
+				{
+					MessageBox.Show("Radnik se nalazi u nekoj ekipi!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+				else
+				{
+					DBManager.Instance.DeleteRadnik(SelectedRadnik.JMBG_ZAP);
+				}
 				UpdateList();
+				
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Zaposleni se nalazi u nekoj ekipi!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageBox.Show("Prekid konekcije sa bazom!", "Konflikt!", MessageBoxButton.OK, MessageBoxImage.Error);
 				UpdateList();
 			}
 		}

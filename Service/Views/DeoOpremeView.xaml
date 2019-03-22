@@ -6,29 +6,29 @@
              xmlns:local="clr-namespace:Service.Views"
              mc:Ignorable="d" 
               d:DesignHeight="750" d:DesignWidth="800">
-	<Grid Background="Blue">
+	<Grid Background="#291D35">
 		<Grid.RowDefinitions>
 			<RowDefinition/>
 			<RowDefinition Height="auto" MinHeight="493.6"/>
 		</Grid.RowDefinitions>
 		<Grid Grid.Row="0" Margin="10,10,-10,389.4" Grid.RowSpan="2">
 			<TextBox HorizontalAlignment="Left" Height="43"  TextWrapping="Wrap" Text="{Binding IdDeo, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" FontSize="20" Margin="490,134,0,0"/>
-			<Label Content="ID DELA OPREME:" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="164" FontSize="18" FontWeight="Bold" Margin="520,93,0,0"/>
+			<Label Content="ID DELA OPREME:" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="164" FontSize="18" FontWeight="Bold" Margin="520,93,0,0" Foreground="#FF715889"/>
 			<TextBlock HorizontalAlignment="Left" Height="20"  TextWrapping="Wrap" Text="{Binding ValidationDeo, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red" Margin="490,182,0,0" />
 
-			<Button Command="{Binding CreateCommand}" Content="Napravi novi tip opreme" HorizontalAlignment="Left" Height="36" Margin="19,210,0,0" VerticalAlignment="Top" Width="315" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<Button Command="{Binding CreateCommand}" Content="Napravi novi tip opreme" HorizontalAlignment="Left" Height="36" Margin="19,210,0,0" VerticalAlignment="Top" Width="315" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF190F22" Foreground="#FF715889"/>
 			<TextBox HorizontalAlignment="Left" Height="22" Margin="46,17,0,0" TextWrapping="Wrap" Text="{Binding NewDeo.TIP_OPREME, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" FontSize="14"/>
 			<TextBox HorizontalAlignment="Left" Height="22" Margin="46,93,0,0" TextWrapping="Wrap" Text="{Binding IdTip, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" FontSize="14"/>
-			<Label Content="NAZIV TIPA OPREME:" HorizontalAlignment="Left" Height="26" Margin="74,-9,0,0" VerticalAlignment="Top" Width="198" FontWeight="Bold" FontSize="14"/>
-			<Label Content="ID TIPA OPREME:" HorizontalAlignment="Left" Height="29" Margin="92,64,0,0" VerticalAlignment="Top" Width="159" FontSize="14" FontWeight="Bold"/>
+			<Label Content="NAZIV TIPA OPREME:" HorizontalAlignment="Left" Height="26" Margin="74,-9,0,0" VerticalAlignment="Top" Width="198" FontWeight="Bold" FontSize="14" Foreground="#FF715889"/>
+			<Label Content="ID TIPA OPREME:" HorizontalAlignment="Left" Height="29" Margin="92,64,0,0" VerticalAlignment="Top" Width="159" FontSize="14" FontWeight="Bold" Foreground="#FF715889"/>
 			<TextBlock HorizontalAlignment="Left" Height="15" Margin="46,44,0,0" TextWrapping="Wrap" Text="{Binding ValidationTip, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" Background="{x:Null}" Foreground="Red"/>
 			<TextBlock HorizontalAlignment="Left" Height="15" Margin="46,123,0,0" TextWrapping="Wrap" Text="{Binding ValidationID, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" Background="{x:Null}" Foreground="Red"/>
-			<Label Content="MAGACIN:" HorizontalAlignment="Center" Height="34" Margin="548,-5,150,0" VerticalAlignment="Top" Width="102" FontSize="18" FontWeight="Bold"/>
+			<Label Content="MAGACIN:" HorizontalAlignment="Center" Height="34" Margin="548,-5,150,0" VerticalAlignment="Top" Width="102" FontSize="18" FontWeight="Bold" Foreground="#FF715889"/>
 			<ComboBox ItemsSource="{Binding Magacins}" SelectedValue="{Binding SelectedMagacin}" Margin="490,29,88,303" />
 			<TextBlock HorizontalAlignment="Left" Height="20" Margin="490,68,0,0" TextWrapping="Wrap" Text="{Binding ValidationMagacin, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="222" Background="{x:Null}" Foreground="Red"/>
-			<Button Command="{Binding PutCommand}" Content="Napravi novi deo opreme" HorizontalAlignment="Left" Height="36" Margin="436,210,0,0" VerticalAlignment="Top" Width="328" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF769CB0"/>
+			<Button Command="{Binding PutCommand}" Content="Napravi novi deo opreme" HorizontalAlignment="Left" Height="36" Margin="436,210,0,0" VerticalAlignment="Top" Width="328" FontFamily="Sitka Small" FontSize="24" FontWeight="Bold" Background="#FF190F22" Foreground="#FF715889"/>
 			<TextBox HorizontalAlignment="Left" Height="22" Margin="46,163,0,0" TextWrapping="Wrap" Text="{Binding Dubina, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" FontSize="14"/>
-			<Label Content="DUBINA ZAKOPAVANJA:" HorizontalAlignment="Left" Height="29" Margin="70,134,0,0" VerticalAlignment="Top" Width="181" FontSize="14" FontWeight="Bold"/>
+			<Label Content="DUBINA ZAKOPAVANJA:" HorizontalAlignment="Left" Height="29" Margin="70,134,0,0" VerticalAlignment="Top" Width="181" FontSize="14" FontWeight="Bold" Foreground="#FF715889"/>
 			<TextBlock HorizontalAlignment="Left" Height="15" Margin="46,190,0,0" TextWrapping="Wrap" Text="{Binding ValidationDubina, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="226" Background="{x:Null}" Foreground="Red"/>
 		</Grid>
 		<Grid Grid.Row="1">
@@ -39,8 +39,8 @@
 					<DataGridTextColumn Header="DUBINA"  Binding="{Binding DUBINA, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
 				</DataGrid.Columns>
 			</DataGrid>
-			<Button Command="{Binding UpdateCommand}" Content="Izmeni" HorizontalAlignment="Left" Height="40" Margin="10,442,0,0" VerticalAlignment="Top" Width="263"/>
-			<Button Command="{Binding DeleteCommand}" Content="Izbrisi" HorizontalAlignment="Left" Height="40" Margin="527,442,0,0" VerticalAlignment="Top" Width="263"/>
+			<Button Command="{Binding UpdateCommand}" Content="Izmeni" HorizontalAlignment="Left" Height="40" Margin="10,442,0,0" VerticalAlignment="Top" Width="263" Background="#FF190F22" Foreground="#FF715889" FontWeight="Bold"/>
+			<Button Command="{Binding DeleteCommand}" Content="Izbrisi" HorizontalAlignment="Left" Height="40" Margin="527,442,0,0" VerticalAlignment="Top" Width="263" Background="#FF190F22" Foreground="#FF715889" FontWeight="Bold"/>
 		</Grid>
 	</Grid>
 </UserControl>
